@@ -15,7 +15,6 @@ export default class World
         // Wait for resources
         this.resources.on('ready', () =>
         {
-            // Setup
             this.coordinates = new Coordinates()
             this.floor = new Floor()
             this.crane = new Crane()
