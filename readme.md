@@ -1,4 +1,5 @@
-# DTE-2800 Oblig 3
+# DTE-2800 Mandatory 3
+Authors: Patrick Dahl, Thomas Ytterdal, Carlos Reiakvam
 
 ## Setup
 Download [Node.js](https://nodejs.org/en/download/).
