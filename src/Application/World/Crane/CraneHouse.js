@@ -1,11 +1,11 @@
 import * as THREE from 'three'
-import Experience from '../../Experience.js'
+import Application from '../../Application.js'
 
 export default class CraneHouse {
     constructor() {
-        this.experience = new Experience()
-        this.scene = this.experience.scene
-        this.resources = this.experience.resources
+        this.application = new Application()
+        this.scene = this.application.scene
+        this.resources = this.application.resources
 
         this.setGeometry()
         this.setMaterial()

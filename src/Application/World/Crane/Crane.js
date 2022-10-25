@@ -1,13 +1,13 @@
 import VehicleBody from "./VehicleBody";
 import * as THREE from 'three'
 import CraneHouse from "./CraneHouse";
-import Experience from '../../Experience.js'
+import Application from '../../Application.js'
 import {position} from "three/examples/jsm/nodes/shadernode/ShaderNodeBaseElements";
 import {Vector3} from "three";
 
 export default class Crane {
     constructor() {
-        const experience = new Experience()
+        const application = new Application()
 
 
         //TODO: trenger position stack eller lignende
@@ -23,7 +23,7 @@ export default class Crane {
 
         craneGroup.add(vehicleBody.mesh, craneHouse.mesh)
 
-        experience.scene.add(craneGroup)
+        application.scene.add(craneGroup)
     }
 
 

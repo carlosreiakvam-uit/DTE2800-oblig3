@@ -1,4 +1,4 @@
-import Experience from '../Experience.js'
+import Application from '../Application.js'
 import Environment from './Environment.js'
 import Floor from './Floor.js'
 import Crane from "./Crane/Crane";
@@ -8,9 +8,9 @@ export default class World
 {
     constructor()
     {
-        this.experience = new Experience()
-        this.scene = this.experience.scene
-        this.resources = this.experience.resources
+        this.application = new Application()
+        this.scene = this.application.scene
+        this.resources = this.application.resources
 
         // Wait for resources
         this.resources.on('ready', () =>

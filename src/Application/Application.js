@@ -11,7 +11,7 @@ import sources from './sources.js'
 
 let instance = null
 
-export default class Experience
+export default class Application
 {
     constructor(_canvas)
     {
@@ -23,7 +23,7 @@ export default class Experience
         instance = this
         
         // Global access
-        window.experience = this
+        window.application = this
 
         // Options
         this.canvas = _canvas

@@ -1,25 +1,27 @@
 import * as THREE from 'three'
-import Experience from '../../Experience.js'
-import {Vector3} from "three";
+import Application from '../Application.js'
 
-export default class VehicleBody {
-    constructor() {
-        this.experience = new Experience()
-        this.scene = this.experience.scene
-        this.resources = this.experience.resources
+export default class Floor
+{
+    constructor()
+    {
+        this.application = new Application()
+        this.scene = this.application.scene
+        this.resources = this.application.resources
 
         this.setGeometry()
+        this.setTextures()
         this.setMaterial()
         this.setMesh()
-        this.height = 2
-
     }
 
-    setGeometry() {
-        this.geometry = new THREE.BoxGeometry(2, this.height, 2)
+    setGeometry()
+    {
+        this.geometry = new THREE.PlaneGeometry(10, 10)
     }
 
-    setTextures() {
+    setTextures()
+    {
         this.textures = {}
 
         this.textures.color = this.resources.items.grassColorTexture
@@ -34,17 +36,19 @@ export default class VehicleBody {
         this.textures.normal.wrapT = THREE.RepeatWrapping
     }
 
-    setMaterial() {
+    setMaterial()
+    {
         this.material = new THREE.MeshStandardMaterial({
-            // map: this.textures.color,
-            // normalMap: this.textures.normal
+            map: this.textures.color,
+            normalMap: this.textures.normal
         })
     }
 
-    setMesh() {
+    setMesh()
+    {
         this.mesh = new THREE.Mesh(this.geometry, this.material)
-        // this.mesh.rotation.x = -Math.PI * 0.5
+        this.mesh.rotation.x = - Math.PI * 0.5
         this.mesh.receiveShadow = true
-        // this.scene.add(this.mesh)
+        this.scene.add(this.mesh)
     }
 }
