@@ -24,4 +24,14 @@ export default [
         type: 'texture',
         path: 'textures/dirt/normal.jpg'
     },
+    {
+        name: 'rustColorTexture',
+        type: 'texture',
+        path: 'textures/rust/color.jpg'
+    },
+    {
+        name: 'rustNormalTexture',
+        type: 'texture',
+        path: 'textures/rust/normal.jpg'
+    },
 ]
