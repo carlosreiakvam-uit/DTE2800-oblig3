@@ -24,4 +24,9 @@ export default [
         type: 'texture',
         path: 'textures/dirt/normal.jpg'
     },
+    {
+        name: 'vehicle',
+        type: 'gltfModel',
+        path: 'models/vehicle.glb'
+    }
 ]

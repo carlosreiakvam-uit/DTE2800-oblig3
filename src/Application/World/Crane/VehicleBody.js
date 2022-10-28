@@ -1,50 +1,34 @@
 import * as THREE from 'three'
 import Application from '../../Application.js'
-import {Vector3} from "three";
 
-export default class VehicleBody {
-    constructor() {
+
+export default class Fox
+{
+    constructor()
+    {
         this.application = new Application()
         this.scene = this.application.scene
         this.resources = this.application.resources
 
-        this.setGeometry()
-        this.setMaterial()
-        this.setMesh()
-        this.height = 2
-
+        // Resource
+        this.resource = this.resources.items.vehicle
+        this.setModel()
     }
 
-    setGeometry() {
-        this.geometry = new THREE.BoxGeometry(2, this.height, 2)
-    }
+    setModel()
+    {
+        this.model = this.resource.scene
+        this.model.scale.set(0.5, 0.5, 0.5)
+        this.model.position.set(1,0.5,0)
+        this.scene.add(this.model)
 
-    setTextures() {
-        this.textures = {}
-
-        this.textures.color = this.resources.items.grassColorTexture
-        this.textures.color.encoding = THREE.sRGBEncoding
-        this.textures.color.repeat.set(1.5, 1.5)
-        this.textures.color.wrapS = THREE.RepeatWrapping
-        this.textures.color.wrapT = THREE.RepeatWrapping
-
-        this.textures.normal = this.resources.items.grassNormalTexture
-        this.textures.normal.repeat.set(1.5, 1.5)
-        this.textures.normal.wrapS = THREE.RepeatWrapping
-        this.textures.normal.wrapT = THREE.RepeatWrapping
-    }
-
-    setMaterial() {
-        this.material = new THREE.MeshStandardMaterial({
-            // map: this.textures.color,
-            // normalMap: this.textures.normal
+        this.model.traverse((child) =>
+        {
+            if(child instanceof THREE.Mesh)
+            {
+                child.castShadow = true
+            }
         })
     }
 
-    setMesh() {
-        this.mesh = new THREE.Mesh(this.geometry, this.material)
-        // this.mesh.rotation.x = -Math.PI * 0.5
-        this.mesh.receiveShadow = true
-        // this.scene.add(this.mesh)
-    }
 }

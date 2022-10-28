@@ -8,22 +8,15 @@ import {Vector3} from "three";
 export default class Crane {
     constructor() {
         const application = new Application()
-
-
-        //TODO: trenger position stack eller lignende
+        const items = application.resources.items
 
         const craneGroup = new THREE.Group()
 
         const vehicleBody = new VehicleBody()
-        vehicleBody.mesh.position.set(0, 0.5, 0)
-
-        const craneHouse = new CraneHouse()
-        craneHouse.mesh.position.set(0.5, 1, 0)
 
 
-        craneGroup.add(vehicleBody.mesh, craneHouse.mesh)
 
-        application.scene.add(craneGroup)
+        application.scene.add(vehicleBody)
     }
 
 
