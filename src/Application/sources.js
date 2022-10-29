@@ -25,6 +25,11 @@ export default [
         path: 'textures/dirt/normal.jpg'
     },
     {
+        name: 'vehicle',
+        type: 'gltfModel',
+        path: 'models/vehicle.glb'
+    }
+    {
         name: 'rustColorTexture',
         type: 'texture',
         path: 'textures/rust/color.jpg'
