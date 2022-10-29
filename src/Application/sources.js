@@ -28,5 +28,30 @@ export default [
         name: 'vehicle',
         type: 'gltfModel',
         path: 'models/vehicle.glb'
+    },
+    {
+        name: 'rustColorTexture',
+        type: 'texture',
+        path: 'textures/rust/color.jpg'
+    },
+    {
+        name: 'rustNormalTexture',
+        type: 'texture',
+        path: 'textures/rust/normal.jpg'
+    },
+    {
+        name: 'rustAlphaTexture',
+        type: 'texture',
+        path: 'textures/rust/alpha.jpg'
+    },
+    {
+        name: "blackDirtyTexture",
+        type: "texture",
+        path: "textures/blackDirtyMetal/texture.jpg"
+    },
+    {
+        name: "blackDirtyDisplacementTexture",
+        type: "texture",
+        path: "textures/blackDirtyMetal/displacement_map.jpg"
     }
 ]

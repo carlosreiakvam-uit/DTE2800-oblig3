@@ -11,6 +11,7 @@ export default class World
         this.application = new Application()
         this.scene = this.application.scene
         this.resources = this.application.resources
+        this.ready = false;
 
         // Wait for resources
         this.resources.on('ready', () =>
@@ -19,10 +20,14 @@ export default class World
             this.floor = new Floor()
             this.crane = new Crane()
             this.environment = new Environment()
+            this.ready = true;
         })
     }
 
     update()
     {
+        if (this.ready) {
+            this.crane.update();
+        }
     }
 }
