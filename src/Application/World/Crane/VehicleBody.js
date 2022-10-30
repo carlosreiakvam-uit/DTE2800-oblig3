@@ -17,7 +17,6 @@ export default class VehicleBody {
         this.model = this.resource.scene
         this.model.scale.set(0.5, 0.5, 0.5)
         this.model.position.set(0.9, 1, 0)
-        this.scene.add(this.model)
 
         this.model.traverse((child) => {
             if (child instanceof THREE.Mesh) {

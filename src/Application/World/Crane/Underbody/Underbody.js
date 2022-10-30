@@ -10,6 +10,7 @@ export default class Underbody {
     constructor() {
         this.application = new Application()
         this.group = new THREE.Group()
+        this.clock = new THREE.Clock();
 
         this.addBelts();
         this.addBody();
@@ -37,14 +38,14 @@ export default class Underbody {
 
         this.rotatingPlate = new Circle();
         this.rotatingPlate.mesh.position.set(0, 0.65, 0);
-        this.rotatingPlate.mesh.scale.set(0.4,0.25,0.4);
+        this.rotatingPlate.mesh.scale.set(0.4, 0.25, 0.4);
 
         this.group.add(this.rotatingPlate.mesh);
     }
 
 
     update() {
-        // this.leftBelt.mesh.material.map.offset.setX(this.application.time.elapsed);
+        this.leftBelt.belt.mesh.material.map.offset.x = this.application.animations.beltRotation;
         // console.log(this.application.time.elapsed)
     }
 }
