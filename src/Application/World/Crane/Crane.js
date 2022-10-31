@@ -2,7 +2,7 @@ import VehicleBody from "./VehicleBody";
 import * as THREE from 'three'
 import Application from '../../Application.js'
 import Underbody from "./Underbody/Underbody.js";
-import BoomBase from "./Booms/BoomBase/BoomBase.js";
+import BoomAssembled from "./Booms/BoomAssembled";
 
 export default class Crane {
     constructor() {
@@ -11,12 +11,12 @@ export default class Crane {
 
         this.vehicleBody = new VehicleBody();
         this.underbody = new Underbody();
-        this.boomBase = new BoomBase()
+        this.boom = new BoomAssembled()
 
         craneGroup.add(
             this.underbody.group,
             this.vehicleBody.model,
-            this.boomBase.group)
+            this.boom.group)
         application.scene.add(craneGroup)
     }
 

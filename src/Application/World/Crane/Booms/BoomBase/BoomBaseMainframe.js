@@ -12,7 +12,7 @@ export default class BoomBaseMainframe {
         this.yOffset = 1
         this.spreadAngle = 10 // spread angle
         this.length = 2
-        this.mainAngel = -15
+        this.mainAngel = -8
 
         this.setTextures()
         this.setMaterial()
@@ -93,14 +93,13 @@ export default class BoomBaseMainframe {
         squareCyl3.rotation.z = deg2rad(90)
         squareCyl3.rotation.y = deg2rad(90)
         squareCyl3.position.y = (Math.sin(deg2rad(90 - (this.mainAngel))) * this.length / 2) - yOffsetAdjustment
-        squareCyl3.position.x = -Math.cos(deg2rad(this.mainAngel)) * this.length / 4
+        squareCyl3.position.x = -Math.cos(deg2rad(90 + this.mainAngel)) * this.length
 
 
         squareCyl4.rotation.z = deg2rad(90)
         squareCyl4.rotation.y = deg2rad(90)
         squareCyl4.position.y = (Math.sin(deg2rad(90 - (this.mainAngel))) * this.length / 2) - yOffsetAdjustment
-        squareCyl4.position.x = Math.cos(deg2rad(this.mainAngel)) * this.length / 4
-        console.log(Math.cos(deg2rad(this.mainAngel)) * this.length / 2)
+        squareCyl4.position.x = Math.cos(deg2rad(90 + this.mainAngel)) * this.length
 
         this.group.add(squareCyl1, squareCyl2, squareCyl3, squareCyl4)
     }
