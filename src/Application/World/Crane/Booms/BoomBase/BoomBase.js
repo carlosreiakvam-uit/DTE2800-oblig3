@@ -1,8 +1,9 @@
 import * as THREE from 'three'
-import MainCylinders from "./MainCylinders.js";
+import BoomBaseMainCylinders from "./MainCylinders.js";
 import Application from "../../../../Application";
+import BoomBaseMainframe from "./BoomBaseMainframe";
 
-export default class SpreadTower {
+export default class BoomBase {
     constructor() {
         const application = new Application()
         this.group = new THREE.Group()
@@ -10,7 +11,8 @@ export default class SpreadTower {
     }
 
     addMainCylinders() {
-        this.mainCylinders = new MainCylinders().group;
+        this.mainCylinders = new BoomBaseMainframe().group;
+        this.mainCylinders.position.y = 2
         this.group.add(this.mainCylinders);
     }
 
