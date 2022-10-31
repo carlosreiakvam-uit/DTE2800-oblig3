@@ -1,8 +1,8 @@
 import Application from '../Application.js'
 import Environment from './Environment.js'
 import Floor from './Floor.js'
-import Crane from "./Crane/Crane";
 import Coordinates from "./coordinates";
+import Crane from "./Crane/Crane.js";
 
 export default class World
 {

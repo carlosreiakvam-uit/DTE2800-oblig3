@@ -2,7 +2,7 @@ import VehicleBody from "./VehicleBody";
 import * as THREE from 'three'
 import Application from '../../Application.js'
 import Underbody from "./Underbody/Underbody.js";
-import BoomBase from "./Booms/BoomBase/SpreadTower.js";
+import BoomBase from "./Booms/BoomBase/BoomBase.js";
 
 export default class Crane {
     constructor() {

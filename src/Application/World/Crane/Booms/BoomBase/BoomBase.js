@@ -1,5 +1,4 @@
 import * as THREE from 'three'
-import BoomBaseMainCylinders from "./MainCylinders.js";
 import Application from "../../../../Application";
 import BoomBaseMainframe from "./BoomBaseMainframe";
 
