@@ -41,5 +41,6 @@ export default class Beam {
         this.mesh = new THREE.Mesh(this.geometry, this.material)
         this.mesh.receiveShadow = true;
         this.mesh.castShadow = true;
+        this.mesh.name = 'underbodyBeam'
     }
 }

@@ -1,20 +1,27 @@
 import * as THREE from 'three'
 import Application from '../../../../Application.js'
-import {cylHyp, cylX, deg2rad} from "../../../../Utils/Math.js";
+import {deg2rad, rad2deg} from "../../../../Utils/Math.js";
 
 export default class MainCylinders {
     constructor() {
         this.application = new Application()
         this.scene = this.application.scene
         this.resources = this.application.resources
+        this.yOffset = 1
 
         this.group = new THREE.Group()
 
+        this.spreadAngle = 10 // spread angle
+        this.length = 2
+        this.backAngle = 20
+        this.frontAngle = 40
 
         this.setGeometry()
         this.setTextures()
         this.setMaterial()
-        this.setMeshes()
+
+        this.setMainCylinders()
+        this.setSquareTopCylinders()
 
     }
 
@@ -39,62 +46,57 @@ export default class MainCylinders {
             metalness: 0.1,
             roughness: 0.5
         })
+        this.yellowMat = new THREE.MeshStandardMaterial({
+            color: 0xffff12
+        })
+        this.redMat = new THREE.MeshStandardMaterial({
+            color: 0xff0012
+        })
     }
 
-    setMeshes() {
-        const sa = 10 // spread angle
-        const height = 2.5
-        let main_cylinders = []
-        const backAngle = 20
-        const frontAngle = 30
+    setMainCylinders() {
+        let mainBackNorth = this.genMainCyl('mainBackNorth', -this.backAngle, this.spreadAngle)
+        let mainBackSouth = this.genMainCyl('mainBackSouth', -this.backAngle, -this.spreadAngle)
+        let mainFrontNorth = this.genMainCyl('mainFrontNorth', -this.frontAngle, this.spreadAngle)
+        let mainFrontSouth = this.genMainCyl('mainFrontSouth', -this.frontAngle, -this.spreadAngle)
 
-        const backCylLength = cylHyp(backAngle, height)
-        const backCylXTrans = cylX(backAngle, backCylLength)
-
-        const frontCylLength = cylHyp(frontAngle, height)
-        const frontCylXTrans = cylX(frontCylLength, backCylLength)
-
-        this.backCylinderGeo = new THREE.CylinderGeometry(0.03, 0.03, backCylLength, 20)
-        this.frontCylinderGeo = new THREE.CylinderGeometry(0.03, 0.03, frontCylLength, 20)
-
-        let mainBackNorth = new THREE.Mesh(this.backCylinderGeo, this.material)
-        mainBackNorth.position.z = -0.4
-        mainBackNorth.rotation.z = deg2rad(-backAngle)
-        mainBackNorth.rotation.x = deg2rad(-sa)
-        mainBackNorth.position.x = mainBackNorth.position.x - backCylXTrans
-        mainBackNorth.position.y = 0.5
-
-        let mainBackSouth = new THREE.Mesh(this.backCylinderGeo, this.material)
-        mainBackSouth.position.z = 0.1
-        mainBackSouth.rotation.z = deg2rad(-backAngle)
-        mainBackSouth.rotation.x = deg2rad(sa)
-        mainBackSouth.position.x = mainBackSouth.position.x - backCylXTrans
-        mainBackSouth.position.y = 0.5
-
-        let mainFrontNorth = new THREE.Mesh(this.frontCylinderGeo, this.material)
-        mainFrontNorth.position.z = -0.4
-        mainFrontNorth.rotation.z = deg2rad(-frontAngle)
-        mainFrontNorth.rotation.x = deg2rad(-sa)
-        // mainFrontNorth.position.x = mainFrontNorth.position.x - frontCylXTrans
-        mainFrontNorth.position.x = -0.5
-        mainFrontNorth.position.y = 0.5
-
-        let mainFrontSouth = new THREE.Mesh(this.frontCylinderGeo, this.material)
-        mainFrontSouth.position.z = 0.1
-        mainFrontSouth.rotation.z = deg2rad(-frontAngle)
-        mainFrontSouth.rotation.x = deg2rad(sa)
-        // mainFrontSouth.position.x = - frontCylXTrans
-        mainFrontSouth.position.x = -0.5
-        mainFrontSouth.position.y = 0.5
+        this.group.add(mainBackNorth, mainBackSouth, mainFrontNorth, mainFrontSouth)
+    }
 
 
-        main_cylinders.push(mainBackNorth, mainBackSouth, mainFrontSouth, mainFrontNorth)
+    genMainCyl(name, zRot, xRot, material = this.material, length = this.length) {
+        let cyl = new THREE.Mesh(this.mainCylinderGeometry, material, name)
 
-        for (let i = 0; i < main_cylinders.length; i++) {
-            main_cylinders[i].receiveShadow = true
-            main_cylinders[i].castShadow = true
-            this.group.add(main_cylinders[i])
-        }
+        let dx = Math.cos(deg2rad(90 + zRot)) * length / 2
+        let dy = (length - (Math.sin(deg2rad(90 + zRot)) * length) / 2)
+        let dz = Math.cos(deg2rad(90 + xRot)) * length / 2
 
+        cyl.rotation.z = deg2rad(zRot)
+        cyl.rotation.x = deg2rad(xRot)
+        cyl.position.x = dx
+        cyl.position.y = this.yOffset - dy
+        cyl.position.z = -dz
+
+        cyl.receiveShadow = true
+        cyl.castShadow = true
+        return cyl
+    }
+
+    setSquareTopCylinders(material = this.redMat) {
+        console.log(this.group.getObjectByName('mainBackNorth'), true)
+        let squareLength = 0.5
+        let boxCylinderGeometry = new THREE.CylinderGeometry(0.03, 0.03, squareLength, 20)
+        let cyl = new THREE.Mesh(boxCylinderGeometry, material)
+        let a = deg2rad(90 - (this.frontAngle - this.frontAngle))
+        let aNormal = Math.sin(a) - Math.cos(a)
+
+        let dx = Math.cos(a) * this.length
+        let dy = Math.sin(a) * this.length
+
+        cyl.rotation.z = aNormal
+        cyl.position.x = dx
+        cyl.position.y = dy
+
+        this.group.add(cyl)
     }
 }

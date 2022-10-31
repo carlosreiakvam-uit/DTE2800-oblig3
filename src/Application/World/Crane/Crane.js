@@ -14,7 +14,8 @@ export default class Crane {
         this.underbody = new Underbody();
 
         this.spreadTower = new SpreadTower()
-        this.spreadTower.group.position.set(1.5, 1.8, 0.08)
+        // this.spreadTower.group.position.set(1.5, 1.6, 0.08)
+        this.spreadTower.group.position.set(4, 1, 0)
 
 
         craneGroup.add(
@@ -22,6 +23,7 @@ export default class Crane {
             this.vehicleBody.model,
             this.spreadTower.group)
         application.scene.add(craneGroup)
+        console.log(application.scene)
     }
 
     update() {

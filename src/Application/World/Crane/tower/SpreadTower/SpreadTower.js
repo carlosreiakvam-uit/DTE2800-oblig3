@@ -1,8 +1,10 @@
 import * as THREE from 'three'
 import MainCylinders from "./MainCylinders.js";
+import Application from "../../../../Application";
 
 export default class SpreadTower {
     constructor() {
+        const application = new Application()
         this.group = new THREE.Group()
         this.addMainCylinders();
     }
