@@ -4,6 +4,7 @@ import BoomExtension from "./BoomExtension";
 import {deg2rad} from "../../../Utils/Math";
 import Application from "../../../Application";
 import {assertPluginList} from "@babel/core/lib/config/validation/option-assertions";
+import BoomWireAndHook from "./BoomWireAndHook";
 
 export default class BoomAssembled {
     constructor() {
@@ -17,6 +18,7 @@ export default class BoomAssembled {
         let boomBase = new BoomEnd(2, angle, angle).group
         let boomExtender = new BoomExtension()
         let boomTop = new BoomEnd(2, angle, angle).group
+        //let boomWireAndHook = new BoomWireAndHook().group
 
         boomExtender.group.position.set(-0.25, 0.99, boomBase.position.x - 0.25)
 
@@ -27,7 +29,7 @@ export default class BoomAssembled {
 
         this.group.rotateZ(deg2rad(-40))
         this.group.position.set(0.8, 2, -0.09)
-        this.group.add(boomBase, boomExtender.group, boomTop);
+        this.group.add(boomBase, boomExtender.group, boomTop, );
 
     }
 }

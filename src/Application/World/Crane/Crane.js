@@ -6,6 +6,7 @@ import HeadLight from "./SpotLight/HeadLight.js";
 import MidBeamAndDrums from "./MidBeamsAndDrums/MidBeamAndDrums.js";
 import Fence from "./BodyDetails/Fence";
 import BoomAssembled from "./Boom/BoomAssembled.js";
+import BoomWireAndHook from "./Boom/BoomWireAndHook";
 
 
 export default class Crane {
@@ -19,6 +20,7 @@ export default class Crane {
         this.boom = new BoomAssembled()
         this.lightTower = new HeadLight();
         this.fence = new Fence();
+        this.boomWireAndHook = new BoomWireAndHook();
 
 
         this.craneGroup.add(
@@ -27,7 +29,8 @@ export default class Crane {
             this.lightTower.group,
             this.midBeamAndDrums.group,
             this.fence.group,
-            this.boom.group
+            this.boom.group,
+            this.boomWireAndHook.group,
     )
         application.scene.add(this.craneGroup)
     }
