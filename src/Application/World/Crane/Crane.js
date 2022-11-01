@@ -6,6 +6,7 @@ import HeadLight from "./SpotLight/HeadLight.js";
 import MidBeamAndDrums from "./MidBeamsAndDrums/MidBeamAndDrums.js";
 import Fence from "./BodyDetails/Fence";
 import Tower from "./patrickTower/tower";
+import BeamAndConnectedWires from "./MidBeamsAndDrums/BeamAndConnectedWires";
 
 export default class Crane {
     constructor() {
@@ -18,6 +19,7 @@ export default class Crane {
         this.midBeamAndDrums = new MidBeamAndDrums();
         this.fence = new Fence();
         this.tower = new Tower();
+        this.beamAndWires = new BeamAndConnectedWires();
 
         //this.spreadTower = new SpreadTower()
         // this.spreadTower.group.position.set(1.5, 1.6, 0.08)
@@ -31,6 +33,7 @@ export default class Crane {
             this.midBeamAndDrums.group,
             this.fence.group,
             this.tower.group,
+            this.beamAndWires.group,
             //this.spreadTower.group
         )
         application.scene.add(this.craneGroup)
