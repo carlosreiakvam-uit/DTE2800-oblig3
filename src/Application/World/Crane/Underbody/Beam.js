@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import Application from '../../../Application.js'
 
 export default class Beam {
-    constructor() {
+    constructor(name = '') {
         this.application = new Application()
         this.scene = this.application.scene
         this.resources = this.application.resources
@@ -11,7 +11,7 @@ export default class Beam {
         this.setGeometry()
         this.setTextures()
         this.setMaterial()
-        this.setMesh()
+        this.setMesh(name)
 
     }
 
@@ -37,10 +37,10 @@ export default class Beam {
         })
     }
 
-    setMesh() {
+    setMesh(name) {
         this.mesh = new THREE.Mesh(this.geometry, this.material)
         this.mesh.receiveShadow = true;
         this.mesh.castShadow = true;
-        this.mesh.name = 'underbodyBeam'
+        this.mesh.name = name
     }
 }

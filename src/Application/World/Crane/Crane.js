@@ -14,13 +14,11 @@ export default class Crane {
         this.craneGroup = new THREE.Group()
 
         this.vehicleBody = new VehicleBody();
-
         this.underbody = new Underbody();
+        this.midBeamAndDrums = new MidBeamAndDrums();
         this.boom = new BoomAssembled()
         this.lightTower = new HeadLight();
-        this.midBeamAndDrums = new MidBeamAndDrums();
         this.fence = new Fence();
-        this.boom = new BoomAssembled();
 
 
         this.craneGroup.add(

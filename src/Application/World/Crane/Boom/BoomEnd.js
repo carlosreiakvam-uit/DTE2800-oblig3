@@ -8,6 +8,7 @@ export default class BoomEnd {
         this.scene = this.application.scene
         this.resources = this.application.resources
         this.group = new THREE.Group()
+        this.group.name = 'boomEnd'
 
         this.yOffset = 1
         this.length = mainLength
