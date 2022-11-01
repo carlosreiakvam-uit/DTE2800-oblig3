@@ -11,7 +11,7 @@ export default class SpreadTower {
 
     addMainCylinders() {
         this.mainCylinders = new MainCylinders().group;
-        this.group.add(this.mainCylinders);
+        //this.group.add(this.mainCylinders);
     }
 
 

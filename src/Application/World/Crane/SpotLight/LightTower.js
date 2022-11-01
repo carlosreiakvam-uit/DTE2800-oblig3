@@ -1,11 +1,10 @@
 import * as THREE from 'three'
 import Application from '../../../Application.js'
-import BeltWithCarriage from "../Underbody/BeltWithCarriage";
-import Beam from "../Underbody/Beam";
-import Circle from "../Underbody/Circle";
-import BeltCarriage from "../Underbody/BeltCarriage";
 import Rod from "./Rod.js";
-import HeadLight from "./HeadLight";
+import HeadLight from "./HeadLight.js";
+import Glass from "./Glass.js";
+import GUI from 'lil-gui';
+import Circle from "../Underbody/Circle";
 
 export default class LightTower {
     constructor() {
@@ -29,9 +28,20 @@ export default class LightTower {
 
         const frontSpotLightLeft = new HeadLight();
         frontSpotLightLeft.mesh.position.set(0.95, 2.05, 0.25);
-        frontSpotLightLeft.mesh.rotation.set(0,0,3.14/2)
+        frontSpotLightLeft.mesh.rotation.set(0,0.122173085039786,Math.PI/2.5)
         frontSpotLightLeft.mesh.scale.set(0.07, 0.09, 0.07);
         this.group.add(frontSpotLightLeft.mesh);
+
+        const frontSpotLightLeftGlass = new Glass();
+        frontSpotLightLeftGlass.mesh.position.set(0.995, 2.04, 0.25);
+        frontSpotLightLeftGlass.mesh.rotation.set(0,0.122173085039786,Math.PI/2.5)
+        frontSpotLightLeftGlass.mesh.scale.set(0.05, 0.005, 0.05);
+        this.group.add(frontSpotLightLeftGlass.mesh);
+
+        const spotLightLeft = new THREE.SpotLight(0xFFFF00, 0.5, 50, Math.PI*0.2, 0, 0);
+        const spotLightRight = new THREE.SpotLight(0xFFFF00, 0.5, 50, Math.PI*0.2, 0, 0);
+        this.setSpotLight(spotLightLeft, {x:5, y:0, z:-0.2}, {x:0.996, y:2.05, z:0.25});
+        this.setSpotLight(spotLightRight, {x:5, y:0, z:1.5}, {x:0.996, y:2.05, z:0.62});
 
         const frontBeamRightbase = new Rod();
         frontBeamRightbase.mesh.position.set(0.95, 1.94, 0.62);
@@ -45,9 +55,16 @@ export default class LightTower {
 
         const frontSpotLightRight = new HeadLight();
         frontSpotLightRight.mesh.position.set(0.95, 2.05, 0.62);
-        frontSpotLightRight.mesh.rotation.set(0,0,3.14/2)
+        frontSpotLightRight.mesh.rotation.set(0,-0.122173085039786,Math.PI/2.5)
         frontSpotLightRight.mesh.scale.set(0.07, 0.09, 0.07);
         this.group.add(frontSpotLightRight.mesh);
+
+        const frontSpotLightRightGlass = new Glass();
+        frontSpotLightRightGlass.mesh.position.set(0.995, 2.04, 0.62);
+        frontSpotLightRightGlass.mesh.rotation.set(0,-0.122173085039786,Math.PI/2.5)
+        frontSpotLightRightGlass.mesh.scale.set(0.05, 0.005, 0.05);
+        this.group.add(frontSpotLightRightGlass.mesh);
+
 
 
         // const backBeam = new Beam();
@@ -67,6 +84,34 @@ export default class LightTower {
         // backMiddleBeam.mesh.scale.set(0.1, 1, 0.6);
         //
         // this.group.add(backMiddleBeam.mesh);
+    }
+
+    setSpotLight(spotLight, targetPosition, lightPosition) {
+        let lilGui = new GUI();
+        spotLight.target.position.set(targetPosition.x, targetPosition.y, targetPosition.z);
+        spotLight.position.set(lightPosition.x, lightPosition.y, lightPosition.z);
+
+        spotLight.visible = true;
+        spotLight.castShadow = true;
+
+        this.group.add(spotLight);
+        this.group.add(spotLight.target);
+        // Viser lyskilden:
+        const spotLightHelper = new THREE.SpotLightHelper( spotLight );
+        spotLightHelper.visible = false;
+        this.group.add( spotLightHelper );
+        // Viser lyskildekamera (hva lyskilden "ser")
+        const spotLightCameraHelper = new THREE.CameraHelper(spotLight.shadow.camera);
+        spotLightCameraHelper.visible = true;
+        this.group.add(spotLightCameraHelper);
+        //lil-gui:
+        const spotFolder = lilGui.addFolder( 'Spotlight' );
+        spotFolder.add(spotLight, 'visible').name("On/Off").onChange(value => {
+            spotLightHelper.visible = value;
+            spotLightCameraHelper.visible = value;
+        });
+        spotFolder.add(spotLight, 'intensity').min(0).max(1).step(0.01).name("Intensity");
+        spotFolder.addColor(spotLight, 'color').name("Color");
     }
 
     // addBody() {
