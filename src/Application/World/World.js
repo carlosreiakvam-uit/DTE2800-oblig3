@@ -21,6 +21,7 @@ export default class World
             this.crane = new Crane()
             this.environment = new Environment()
             this.ready = true;
+
         })
     }
 

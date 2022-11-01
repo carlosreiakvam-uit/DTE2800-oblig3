@@ -6,7 +6,8 @@ import Application from "../../../Application";
 import {assertPluginList} from "@babel/core/lib/config/validation/option-assertions";
 
 export default class BoomAssembled {
-    constructor() {
+    constructor(midBeam) {
+        let platformPos = midBeam.group.getObjectByName('midBeamAndDrums').getObjectByName('platform').position
         this.application = new Application()
         this.scene = this.application.scene
         this.group = new THREE.Group()
@@ -23,12 +24,10 @@ export default class BoomAssembled {
         boomTop.rotateX(deg2rad(180))
         boomTop.position.set(boomBase.position.x, boomExtender.length + 2 - 0.05, 0)
 
-        // let platform = this.scene.getObjectByName('platform')
-
-        this.group.rotateZ(deg2rad(-40))
-        this.group.position.set(0.8, 2, -0.09)
+        this.group.rotateZ(deg2rad(-10))
+        this.group.position.set(platformPos.x, platformPos.y, platformPos.z)
+        this.group.translateY(1)
         this.group.add(boomBase, boomExtender.group, boomTop);
-
     }
 }
 

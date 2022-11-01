@@ -16,7 +16,7 @@ export default class Crane {
         this.vehicleBody = new VehicleBody();
         this.underbody = new Underbody();
         this.midBeamAndDrums = new MidBeamAndDrums();
-        this.boom = new BoomAssembled()
+        this.boom = new BoomAssembled(this.midBeamAndDrums)
         this.lightTower = new HeadLight();
         this.fence = new Fence();
 
