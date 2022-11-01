@@ -6,6 +6,7 @@ import HeadLight from "./SpotLight/HeadLight.js";
 import MidBeamAndDrums from "./MidBeamsAndDrums/MidBeamAndDrums.js";
 import Fence from "./BodyDetails/Fence";
 import BoomAssembled from "./Boom/BoomAssembled.js";
+import {deg2rad} from "../../Utils/Math";
 
 
 export default class Crane {
@@ -36,5 +37,6 @@ export default class Crane {
         this.underbody.update();
         this.lightTower.update();
         this.craneGroup.position.setX(this.application.animations.cranePosition);
+        this.boom.update()
     }
 }
