@@ -45,24 +45,12 @@ export default class Tower {
         longBeam4.mesh.rotation.set(0, 0, 0);
         this.group.add(longBeam4.mesh);
 
-        const shortBeam1Section1 = new Circle();
-        shortBeam1Section1.mesh.position.set(start, start, width/2);
-        shortBeam1Section1.mesh.scale.set(diameter, width, diameter);
-        shortBeam1Section1.mesh.rotation.set(Math.PI/2, 0, 0);
-        this.group.add(shortBeam1Section1.mesh);
-
-        const shortBeam2Section1 = new Circle();
-        shortBeam2Section1.mesh.position.set(start+width, start, width/2);
-        shortBeam2Section1.mesh.scale.set(diameter, width, diameter);
-        shortBeam2Section1.mesh.rotation.set(Math.PI/2, 0, 0);
-        this.group.add(shortBeam2Section1.mesh);
-
         this.addHorizontalSectionShortBeam(start,0.5, 0.02, numberOfSections);
     }
 
     addHorizontalSectionShortBeam(start, width, diameter, numberOfSections) {
 
-        for(let i = 0; i < numberOfSections; i++) {
+        for(let i = 0; i <= numberOfSections; i++) {
             const horizontalBeam1= new Circle();
             horizontalBeam1.mesh.position.set(start, start+(width*i), width/2);
             horizontalBeam1.mesh.scale.set(diameter, width, diameter);
@@ -87,6 +75,10 @@ export default class Tower {
             horizontalBeam4.mesh.rotation.set(0, 0, Math.PI/2);
             this.group.add(horizontalBeam4.mesh);
 
+            if(i === numberOfSections) {
+                return
+            }
+
             if(i % 2 === 0) {
                 const skewedFront= new Circle();
                 const length = Math.sqrt((width*width) + (width*width));
@@ -102,10 +94,16 @@ export default class Tower {
                 this.group.add(skewedBack.mesh);
 
                 const skewedRight = new Circle();
-                skewedRight.mesh.position.set(start+(width/2)+width/2, start+(width/2) + (width*i), width/2);
+                skewedRight.mesh.position.set(start+width, start+(width/2) + (width*i), width/2);
                 skewedRight.mesh.scale.set(diameter, length, diameter);
                 skewedRight.mesh.rotation.set(Math.PI/4, 0, 0);
                 this.group.add(skewedRight.mesh);
+
+                const skewedLeft = new Circle();
+                skewedLeft.mesh.position.set(start, start+(width/2) + (width*i), width/2);
+                skewedLeft.mesh.scale.set(diameter, length, diameter);
+                skewedLeft.mesh.rotation.set(Math.PI/4, 0, 0);
+                this.group.add(skewedLeft.mesh);
 
             } else {
                 const skewedFront= new Circle();
@@ -126,6 +124,12 @@ export default class Tower {
                 skewedRight.mesh.scale.set(diameter, length, diameter);
                 skewedRight.mesh.rotation.set(-Math.PI/4, 0, 0);
                 this.group.add(skewedRight.mesh);
+
+                const skewedLeft = new Circle();
+                skewedLeft.mesh.position.set(start, start+(width/2) + (width*i), width/2);
+                skewedLeft.mesh.scale.set(diameter, length, diameter);
+                skewedLeft.mesh.rotation.set(-Math.PI/4, 0, 0);
+                this.group.add(skewedLeft.mesh);
             }
         }
     }
