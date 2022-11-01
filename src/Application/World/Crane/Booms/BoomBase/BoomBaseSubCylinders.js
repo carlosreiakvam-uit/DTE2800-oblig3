@@ -18,22 +18,8 @@ export default class BoomBaseSubCylinders {
         this.setMaterial()
         this.setHorCylinders(2)
         this.setHorCylinders(1)
-        this.testStructure()
 
     }
-
-    testStructure() {
-        let boxGeo = new THREE.BoxGeometry(1, 1, 1)
-        let cylGeo = new THREE.CylinderGeometry(0.5, 0.5, 2)
-        let box = new THREE.Mesh(boxGeo, this.material)
-        let cyl = new THREE.Mesh(cylGeo, this.material)
-        box.position.x = 2
-        cyl.position.x = 4
-
-        this.scene.add(box, cyl)
-
-    }
-
 
     setTextures() {
         this.textures = {}
@@ -55,34 +41,35 @@ export default class BoomBaseSubCylinders {
     setHorCylinders(height) {
         let material = this.material
         let yOffsetAdjustment = 0.06
-        let squareLength1 = Math.cos(deg2rad(90 - this.zRotAngle)) * height * 2
-        let squareLength2 = Math.cos(deg2rad(90 - this.xRotAngle)) * height * 2
 
+        let squareLength1 = Math.cos(deg2rad(90 - this.zRotAngle)) * height * 2
         let geometry1 = new THREE.CylinderGeometry(0.02, 0.02, squareLength1, 20)
         let squareCyl1 = new THREE.Mesh(geometry1, material)
         let squareCyl2 = new THREE.Mesh(geometry1, material)
 
+        let squareLength2 = Math.cos(deg2rad(90 - this.zRotAngle)) * height * 2
         let geometry2 = new THREE.CylinderGeometry(0.02, 0.02, squareLength2, 20)
         let squareCyl3 = new THREE.Mesh(geometry2, material)
         let squareCyl4 = new THREE.Mesh(geometry2, material)
 
         squareCyl1.rotation.z = deg2rad(90)
-        squareCyl1.position.y = (Math.sin(deg2rad(90 - (this.zRotAngle))) * height / 2) - yOffsetAdjustment
-        squareCyl1.position.z = Math.sin(deg2rad(this.xRotAngle)) * height
+        squareCyl1.position.y = (height / 2) - yOffsetAdjustment
+        squareCyl1.position.z = Math.cos(deg2rad(90 - this.zRotAngle)) * height
 
         squareCyl2.rotation.z = deg2rad(90)
         squareCyl2.position.y = (Math.sin(deg2rad(90 - (this.zRotAngle))) * height / 2) - yOffsetAdjustment
+        squareCyl2.position.y = (height / 2) - yOffsetAdjustment
         squareCyl2.position.z = -Math.sin(deg2rad(this.xRotAngle)) * height
 
         squareCyl3.rotation.z = deg2rad(90)
         squareCyl3.rotation.y = deg2rad(90)
-        squareCyl3.position.y = (Math.sin(deg2rad(90 - (this.zRotAngle))) * height / 2) - yOffsetAdjustment
+        squareCyl3.position.y = (height / 2) - yOffsetAdjustment
         squareCyl3.position.x = -Math.cos(deg2rad(90 + this.zRotAngle)) * height
 
 
         squareCyl4.rotation.z = deg2rad(90)
         squareCyl4.rotation.y = deg2rad(90)
-        squareCyl4.position.y = (Math.sin(deg2rad(90 - (this.zRotAngle))) * height / 2) - yOffsetAdjustment
+        squareCyl4.position.y = (height / 2) - yOffsetAdjustment
         squareCyl4.position.x = Math.cos(deg2rad(90 + this.zRotAngle)) * height
 
         this.group.add(squareCyl1, squareCyl2, squareCyl3, squareCyl4)
