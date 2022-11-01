@@ -45,7 +45,7 @@ export default class Tower {
         longBeam4.mesh.rotation.set(0, 0, 0);
         this.group.add(longBeam4.mesh);
 
-        this.addHorizontalSectionShortBeam(start,0.5, 0.02, numberOfSections);
+        this.addHorizontalSectionShortBeam(start,width, diameter, numberOfSections);
     }
 
     addHorizontalSectionShortBeam(start, width, diameter, numberOfSections) {
