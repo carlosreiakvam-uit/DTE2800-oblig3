@@ -34,14 +34,14 @@ export default class MidBeamAndDrums {
         this.group.add(beam2.mesh);
 
         const beam3 = new Circle();
-        beam3.mesh.position.set(-0.5, 2.8, -0.3);
-        beam3.mesh.scale.set(0.05, 3, 0.05);
+        beam3.mesh.position.set(-0.2, 3, -0.3);
+        beam3.mesh.scale.set(0.05, 4, 0.05);
         beam3.mesh.rotation.set(0, 0, -Math.PI / 4);
         this.group.add(beam3.mesh);
 
         const beam4 = new Circle();
-        beam4.mesh.position.set(-0.5, 2.8, 0.14);
-        beam4.mesh.scale.set(0.05, 3, 0.05);
+        beam4.mesh.position.set(-0.2, 3, 0.14);
+        beam4.mesh.scale.set(0.05, 4, 0.05);
         beam4.mesh.rotation.set(0, 0, -Math.PI / 4);
         this.group.add(beam4.mesh);
 
