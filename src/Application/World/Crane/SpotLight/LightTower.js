@@ -13,11 +13,10 @@ export default class LightTower {
 
         this.spotLightLeft = new THREE.SpotLight(0xFFFF00, 0.5, 50, Math.PI*0.2, 0, 0);
         this.spotLightRight = new THREE.SpotLight(0xFFFF00, 0.5, 50, Math.PI*0.2, 0, 0);
-        this.addRod();
-        //this.addLantern();
+        this.addLightTowers();
     }
 
-    addRod() {
+    addLightTowers() {
         const frontBeamLeftbase = new Rod();
         frontBeamLeftbase.mesh.position.set(0.95, 1.94, 0.25);
         frontBeamLeftbase.mesh.scale.set(0.04, 0.01, 0.04);
@@ -39,7 +38,6 @@ export default class LightTower {
         frontSpotLightLeftGlass.mesh.rotation.set(0,0.122173085039786,Math.PI/2.5)
         frontSpotLightLeftGlass.mesh.scale.set(0.05, 0.005, 0.05);
         this.group.add(frontSpotLightLeftGlass.mesh);
-
 
         this.setSpotLight(this.spotLightLeft, {x:5, y:0, z:-0.2}, {x:0.996, y:2.05, z:0.25});
         this.setSpotLight(this.spotLightRight, {x:5, y:0, z:1.5}, {x:0.996, y:2.05, z:0.62});
