@@ -1,25 +1,19 @@
 import * as THREE from 'three'
 import Application from "../../../../Application";
 import BoomBaseMainframe from "./BoomBaseMainframe";
+import BoomBaseSubCylinders from "./BoomBaseSubCylinders";
 
 export default class BoomBase {
-    constructor() {
+    constructor(length, xAngle,zAngle) {
         this.group = new THREE.Group()
-        this.addMainCylinders();
+        this.xAngle = xAngle
+        this.zAngle = zAngle
+        this.mainLength = length
+
+        this.mainCylinders = new BoomBaseMainframe(this.mainLength, this.xAngle, this.zAngle).group
+        this.subCylinders = new BoomBaseSubCylinders(this.mainLength, this.xAngle, this.zAngle).group
+
+        this.group.add(this.mainCylinders, this.subCylinders);
     }
 
-    addMainCylinders() {
-        this.mainCylinders = new BoomBaseMainframe().group;
-        // this.mainCylinders.position.set(0.3,2,-0.05) // place in vehicle
-        this.group.add(this.mainCylinders);
-    }
-
-
-    setPosition(x, y, z) {
-        this.group.position.set(x, y, z)
-    }
-
-    setScale(scale) {
-        this.group.scale.multiplyScalar(scale)
-    }
 }

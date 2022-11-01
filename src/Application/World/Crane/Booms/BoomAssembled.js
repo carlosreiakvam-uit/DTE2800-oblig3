@@ -1,15 +1,20 @@
 import * as THREE from 'three'
 import BoomBase from "./BoomBase/BoomBase.js";
+import {length} from "three/examples/jsm/nodes/shadernode/ShaderNodeBaseElements";
 
 export default class BoomAssembled {
     constructor() {
         this.group = new THREE.Group()
         this.addBoomBase()
-        this.group.position.set(0.3,2,-0.05)
+        this.group.position.set(0.3, 2, -0.05)
     }
 
     addBoomBase() {
-        this.boomBase = new BoomBase().group;
+        let xAngle = 10
+        let zAngle = -8
+        let length = 2
+
+        this.boomBase = new BoomBase(length, xAngle, zAngle).group;
         this.group.add(this.boomBase);
     }
 
