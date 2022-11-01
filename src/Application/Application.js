@@ -52,10 +52,6 @@ export default class Application
         {
             this.update()
         })
-
-        this.keypress.on("keydown", () => {
-            this.animations.update(this.keypress.currentlyPressedKeys);
-        })
     }
 
     resize()
@@ -66,6 +62,7 @@ export default class Application
 
     update()
     {
+        this.animations.update(this.keypress.currentlyPressedKeys)
         this.camera.update()
         this.world.update()
         this.renderer.update()
