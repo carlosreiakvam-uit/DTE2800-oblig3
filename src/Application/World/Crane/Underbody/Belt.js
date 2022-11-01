@@ -7,7 +7,6 @@ export default class Belt {
         this.scene = this.application.scene
         this.resources = this.application.resources
 
-
         this.setGeometry()
         this.setTextures()
         this.setMaterial()
