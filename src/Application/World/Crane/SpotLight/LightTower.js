@@ -93,24 +93,4 @@ export default class LightTower {
         spotFolder.add(spotLight, 'intensity').min(0).max(1).step(0.01).name("Intensity");
         spotFolder.addColor(spotLight, 'color').name("Color");
     }
-
-    // addBody() {
-    //     this.mainBeam = new Beam();
-    //     this.mainBeam.mesh.position.set(0, 0.35, 0);
-    //     this.mainBeam.mesh.scale.set(1, 0.4, 2);
-    //
-    //     this.group.add(this.mainBeam.mesh);
-    //
-    //     this.rotatingPlate = new Circle();
-    //     this.rotatingPlate.mesh.position.set(0, 0.65, 0);
-    //     this.rotatingPlate.mesh.scale.set(0.4,0.25,0.4);
-    //
-    //     this.group.add(this.rotatingPlate.mesh);
-    // }
-
-
-    update() {
-        // this.leftBelt.mesh.material.map.offset.setX(this.application.time.elapsed);
-        // console.log(this.application.time.elapsed)
-    }
 }

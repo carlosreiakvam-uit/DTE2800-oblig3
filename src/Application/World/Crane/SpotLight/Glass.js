@@ -21,7 +21,8 @@ export default class Rod {
     setTextures() {
         this.textures = {}
 
-        this.textures.color = this.resources.items.rustColorTexture
+        //Få ny textur, glass
+        this.textures.color = this.resources.items.blackDirtyTexture
         this.textures.color.encoding = THREE.sRGBEncoding;
         this.textures.color.wrapS = THREE.RepeatWrapping;
         this.textures.color.wrapT = THREE.RepeatWrapping;
@@ -40,6 +41,6 @@ export default class Rod {
         this.mesh = new THREE.Mesh(this.geometry, this.material)
         this.mesh.receiveShadow = true;
         this.mesh.castShadow = true;
-        this.mesh.name = 'underbodyBeam'
+        this.mesh.name = 'headlightGlassMesh'
     }
 }

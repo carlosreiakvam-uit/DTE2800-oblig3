@@ -35,6 +35,11 @@ export default [
         path: 'textures/rust/color.jpg'
     },
     {
+        name: 'headlightGlassTexture',
+        type: 'texture',
+        path: 'textures/headlightGlass/headlightGlass.jpg'
+    },
+    {
         name: 'rustNormalTexture',
         type: 'texture',
         path: 'textures/rust/normal.jpg'
