@@ -43,6 +43,7 @@ export default class Crane {
     update() {
         this.underbody.update();
         this.lightTower.update();
+        this.beamAndWires.update();
         this.craneGroup.position.setX(this.application.animations.cranePosition);
     }
 }
