@@ -1,9 +1,6 @@
 import VehicleBody from "./VehicleBody";
 import * as THREE from 'three'
 import Application from '../../Application.js'
-import {position} from "three/examples/jsm/nodes/shadernode/ShaderNodeBaseElements";
-import {Vector3} from "three";
-import Belt from "./Underbody/Belt.js";
 import Underbody from "./Underbody/Underbody.js";
 
 export default class Crane {
