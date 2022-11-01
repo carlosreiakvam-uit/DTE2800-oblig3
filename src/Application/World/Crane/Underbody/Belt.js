@@ -11,7 +11,6 @@ export default class Belt {
         this.setTextures()
         this.setMaterial()
         this.setMesh()
-
     }
 
     setGeometry() {
