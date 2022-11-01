@@ -4,6 +4,7 @@ import Application from "./Application";
 
 
 export default class Animations{
+    craneRotation;
 
     constructor() {
         this.beltRotation = 0;
@@ -17,6 +18,8 @@ export default class Animations{
         this.headLightsColor = 0xFFFF00;
 
         this.theSunIsShining = true;
+
+        this.craneRotation = 0;
     }
 
     toggleHeadlights() {
@@ -33,6 +36,14 @@ export default class Animations{
         this.cranePosition -= this.cranePositionIncrement;
     }
 
+    rotateCraneLeft() {
+        this.craneRotation += 0.02;
+    }
+
+    rotateCraneRight() {
+        this.craneRotation -= 0.02;
+    }
+
 
     update(currentlyPressedKeys) {
         if(currentlyPressedKeys["KeyW"]) {
@@ -45,6 +56,14 @@ export default class Animations{
 
         if(currentlyPressedKeys["KeyG"]) {
             this.toggleHeadlights();
+        }
+
+        if(currentlyPressedKeys["KeyQ"]) {
+            this.rotateCraneLeft();
+        }
+
+        if(currentlyPressedKeys["KeyE"]) {
+            this.rotateCraneRight();
         }
     }
 }

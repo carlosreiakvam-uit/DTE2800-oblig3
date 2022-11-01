@@ -28,12 +28,7 @@ export default class Crane {
 
         this.craneGroup.add(
             this.underbody.group,
-            this.vehicleBody.model,
-            this.lightTower.group,
-            this.midBeamAndDrums.group,
-            this.fence.group,
-            this.tower.group,
-            this.beamAndWires.group,
+            this.vehicleBody.group
             // this.spreadTower.group
         )
         application.scene.add(this.craneGroup)
@@ -44,5 +39,6 @@ export default class Crane {
         this.lightTower.update();
         this.beamAndWires.update();
         this.craneGroup.position.setX(this.application.animations.cranePosition);
+        this.vehicleBody.update();
     }
 }

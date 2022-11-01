@@ -12,8 +12,6 @@ export default class HeadLights {
     }
 
 
-
-
     update() {
         this.leftLight.update()
         this.rightLight.update()
