@@ -1,6 +1,6 @@
 import * as THREE from 'three'
-import Application from '../../../../Application.js'
-import {deg2rad} from "../../../../Utils/Math.js";
+import Application from '../../../Application.js'
+import {deg2rad} from "../../../Utils/Math.js";
 
 export default class BoomBase {
     constructor(mainLength, xAngle, zAngle) {

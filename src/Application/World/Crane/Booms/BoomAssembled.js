@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import BoomBase from "./BoomBase/BoomBase.js";
+import BoomBase from "./BoomBase.js";
 
 export default class BoomAssembled {
     constructor() {
