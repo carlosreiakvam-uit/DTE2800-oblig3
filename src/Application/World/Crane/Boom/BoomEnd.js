@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import Application from '../../../Application.js'
 import {deg2rad} from "../../../Utils/Math.js";
 
-export default class BoomBase {
+export default class BoomEnd {
     constructor(mainLength, xAngle, zAngle) {
         this.application = new Application()
         this.scene = this.application.scene
@@ -11,7 +11,7 @@ export default class BoomBase {
 
         this.yOffset = 1
         this.length = mainLength
-        this.xRotAngle = xAngle // spread angle
+        this.xRotAngle = xAngle
         this.zRotAngle = zAngle
 
         this.setTextures()
