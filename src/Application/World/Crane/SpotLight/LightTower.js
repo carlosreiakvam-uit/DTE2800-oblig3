@@ -11,6 +11,8 @@ export default class LightTower {
         this.application = new Application()
         this.group = new THREE.Group()
 
+        this.spotLightLeft = new THREE.SpotLight(0xFFFF00, 0.5, 50, Math.PI*0.2, 0, 0);
+        this.spotLightRight = new THREE.SpotLight(0xFFFF00, 0.5, 50, Math.PI*0.2, 0, 0);
         this.addRod();
         //this.addLantern();
     }
@@ -38,10 +40,9 @@ export default class LightTower {
         frontSpotLightLeftGlass.mesh.scale.set(0.05, 0.005, 0.05);
         this.group.add(frontSpotLightLeftGlass.mesh);
 
-        const spotLightLeft = new THREE.SpotLight(0xFFFF00, 0.5, 50, Math.PI*0.2, 0, 0);
-        const spotLightRight = new THREE.SpotLight(0xFFFF00, 0.5, 50, Math.PI*0.2, 0, 0);
-        this.setSpotLight(spotLightLeft, {x:5, y:0, z:-0.2}, {x:0.996, y:2.05, z:0.25});
-        this.setSpotLight(spotLightRight, {x:5, y:0, z:1.5}, {x:0.996, y:2.05, z:0.62});
+
+        this.setSpotLight(this.spotLightLeft, {x:5, y:0, z:-0.2}, {x:0.996, y:2.05, z:0.25});
+        this.setSpotLight(this.spotLightRight, {x:5, y:0, z:1.5}, {x:0.996, y:2.05, z:0.62});
 
         const frontBeamRightbase = new Rod();
         frontBeamRightbase.mesh.position.set(0.95, 1.94, 0.62);
@@ -67,6 +68,7 @@ export default class LightTower {
     }
 
     setSpotLight(spotLight, targetPosition, lightPosition) {
+        console.log(spotLight)
         let lilGui = new GUI();
         spotLight.target.position.set(targetPosition.x, targetPosition.y, targetPosition.z);
         spotLight.position.set(lightPosition.x, lightPosition.y, lightPosition.z);
@@ -92,5 +94,10 @@ export default class LightTower {
         });
         spotFolder.add(spotLight, 'intensity').min(0).max(1).step(0.01).name("Intensity");
         spotFolder.addColor(spotLight, 'color').name("Color");
+    }
+
+    update() {
+        this.spotLightLeft.isLight = this.application.animations.headLightsOn;
+        this.spotLightRight.isLight = this.application.animations.headLightsOn;
     }
 }

@@ -14,22 +14,24 @@ export default class Crane {
         this.underbody = new Underbody();
         this.lightTower = new LightTower();
 
-        this.spreadTower = new SpreadTower()
+        //this.spreadTower = new SpreadTower()
         // this.spreadTower.group.position.set(1.5, 1.6, 0.08)
-        this.spreadTower.group.position.set(4, 1, 0)
+        //this.spreadTower.group.position.set(4, 1, 0)
 
 
         this.craneGroup.add(
             this.underbody.group,
             this.vehicleBody.model,
             this.lightTower.group,
-            this.spreadTower.group)
+            //this.spreadTower.group
+        )
         application.scene.add(this.craneGroup)
         console.log(application.scene)
     }
 
     update() {
         this.underbody.update();
+        this.lightTower.update();
         this.craneGroup.position.setX(this.application.animations.cranePosition);
     }
 }
