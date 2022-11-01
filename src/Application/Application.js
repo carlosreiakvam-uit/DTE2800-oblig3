@@ -8,6 +8,8 @@ import World from './World/World.js'
 import Resources from './Utils/Resources.js'
 
 import sources from './sources.js'
+import Animations from "./Animations.js";
+import KeyPress from "./Utils/KeyPress.js";
 
 let instance = null
 
@@ -36,6 +38,8 @@ export default class Application
         this.camera = new Camera()
         this.renderer = new Renderer()
         this.world = new World()
+        this.animations = new Animations()
+        this.keypress = new KeyPress()
 
         // Resize event
         this.sizes.on('resize', () =>
@@ -47,6 +51,10 @@ export default class Application
         this.time.on('tick', () =>
         {
             this.update()
+        })
+
+        this.keypress.on("keydown", () => {
+            this.animations.update(this.keypress.currentlyPressedKeys);
         })
     }
 
