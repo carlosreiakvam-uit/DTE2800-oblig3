@@ -64,26 +64,6 @@ export default class LightTower {
         frontSpotLightRightGlass.mesh.rotation.set(0,-0.122173085039786,Math.PI/2.5)
         frontSpotLightRightGlass.mesh.scale.set(0.05, 0.005, 0.05);
         this.group.add(frontSpotLightRightGlass.mesh);
-
-
-
-        // const backBeam = new Beam();
-        // backBeam.mesh.position.set(-30, 0.2, 0);
-        // backBeam.mesh.scale.set(0.1, 2.2, 0.6);
-        //
-        // this.group.add(backBeam.mesh);
-        //
-        // const frontMiddleBeam = new Beam();
-        // frontMiddleBeam.mesh.position.set(10, 0.9, 0);
-        // frontMiddleBeam.mesh.scale.set(0.1, 1, 0.6);
-        //
-        // this.group.add(frontMiddleBeam.mesh);
-        //
-        // const backMiddleBeam = new Beam();
-        // backMiddleBeam.mesh.position.set(-10, 0.9, 0);
-        // backMiddleBeam.mesh.scale.set(0.1, 1, 0.6);
-        //
-        // this.group.add(backMiddleBeam.mesh);
     }
 
     setSpotLight(spotLight, targetPosition, lightPosition) {
