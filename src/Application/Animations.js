@@ -5,9 +5,9 @@ import Application from "./Application";
 
 export default class Animations{
     constructor() {
-        this.application = new Application();
         this.beltRotation = 0;
         this.cranePosition = 0;
+
 
         this.beltRotationIncrement = 0.01;
         this.cranePositionIncrement = 0.02;
