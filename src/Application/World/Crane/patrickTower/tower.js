@@ -9,8 +9,6 @@ export default class Tower {
         this.application = new Application()
         this.group = new THREE.Group()
 
-        this.spotLightLeft = new THREE.SpotLight(0xFFFF00, 0.5, 50, Math.PI*0.2, 0, 0);
-        this.spotLightRight = new THREE.SpotLight(0xFFFF00, 0.5, 50, Math.PI*0.2, 0, 0);
         this.addMainBeams();
     }
 
@@ -135,7 +133,5 @@ export default class Tower {
     }
 
     update() {
-        this.spotLightLeft.isLight = this.application.animations.headLightsOn;
-        this.spotLightRight.isLight = this.application.animations.headLightsOn;
     }
 }
