@@ -4,6 +4,7 @@ import Application from '../../Application.js'
 import Underbody from "./Underbody/Underbody.js";
 import LightTower from "./SpotLight/LightTower.js";
 import MidBeamAndDrums from "./MidBeamsAndDrums/MidBeamAndDrums.js";
+import Fence from "./BodyDetails/Fence";
 
 export default class Crane {
     constructor() {
@@ -14,6 +15,7 @@ export default class Crane {
         this.underbody = new Underbody();
         this.lightTower = new LightTower();
         this.midBeamAndDrums = new MidBeamAndDrums();
+        this.fence = new Fence();
 
         //this.spreadTower = new SpreadTower()
         // this.spreadTower.group.position.set(1.5, 1.6, 0.08)
@@ -25,6 +27,7 @@ export default class Crane {
             this.vehicleBody.model,
             this.lightTower.group,
             this.midBeamAndDrums.group,
+            this.fence.group,
             //this.spreadTower.group
         )
         application.scene.add(this.craneGroup)
