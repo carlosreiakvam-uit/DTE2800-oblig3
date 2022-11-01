@@ -7,6 +7,12 @@ export default class Animations{
 
         this.beltRotationIncrement = 0.01;
         this.cranePositionIncrement = 0.02;
+
+        this.headLightsOn = true;
+    }
+
+    toggleHeadlights() {
+        this.headLightsOn = !this.headLightsOn;
     }
 
     moveCraneForwards() {
@@ -25,6 +31,10 @@ export default class Animations{
         }
         if(currentlyPressedKeys["KeyS"]) {
             this.moveCraneBackwards();
+        }
+
+        if(currentlyPressedKeys["KeyG"]) {
+            this.toggleHeadlights();
         }
     }
 }

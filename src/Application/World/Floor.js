@@ -17,13 +17,12 @@ export default class Floor
 
     setGeometry()
     {
-        this.geometry = new THREE.PlaneGeometry(10, 10)
+        this.geometry = new THREE.PlaneGeometry(30, 30)
     }
 
     setTextures()
     {
         this.textures = {}
-
         this.textures.color = this.resources.items.grassColorTexture
         this.textures.color.encoding = THREE.sRGBEncoding
         this.textures.color.repeat.set(1.5, 1.5)
