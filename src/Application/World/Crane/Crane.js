@@ -2,11 +2,11 @@ import VehicleBody from "./VehicleBody";
 import * as THREE from 'three'
 import Application from '../../Application.js'
 import Underbody from "./Underbody/Underbody.js";
-import HeadLight from "./SpotLight/HeadLight.js";
 import MidBeamAndDrums from "./MidBeamsAndDrums/MidBeamAndDrums.js";
 import Fence from "./BodyDetails/Fence";
 import Tower from "./patrickTower/tower";
 import BeamAndConnectedWires from "./MidBeamsAndDrums/BeamAndConnectedWires";
+import HeadLights from "./SpotLight/HeadLights.js";
 
 export default class Crane {
     constructor() {
@@ -15,7 +15,7 @@ export default class Crane {
 
         this.vehicleBody = new VehicleBody();
         this.underbody = new Underbody();
-        this.lightTower = new HeadLight();
+        this.lightTower = new HeadLights();
         this.midBeamAndDrums = new MidBeamAndDrums();
         this.fence = new Fence();
         this.tower = new Tower();
@@ -34,10 +34,9 @@ export default class Crane {
             this.fence.group,
             this.tower.group,
             this.beamAndWires.group,
-            //this.spreadTower.group
+            // this.spreadTower.group
         )
         application.scene.add(this.craneGroup)
-        console.log(application.scene)
     }
 
     update() {

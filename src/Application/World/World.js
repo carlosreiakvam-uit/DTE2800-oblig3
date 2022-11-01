@@ -28,6 +28,7 @@ export default class World
     {
         if (this.ready) {
             this.crane.update();
+            this.environment.update();
         }
     }
 }

@@ -1,7 +1,7 @@
 import Application from "../../../Application";
 import * as THREE from "three";
 
-export default class CraneSpotLight {
+export default class Cone {
     constructor() {
         this.application = new Application()
         this.scene = this.application.scene
@@ -15,7 +15,7 @@ export default class CraneSpotLight {
     }
 
     setGeometry() {
-        this.geometry = new THREE.ConeGeometry(1,1,30,30)
+        this.geometry = new THREE.ConeGeometry(1,1,30,30, true)
     }
 
     setTextures() {
