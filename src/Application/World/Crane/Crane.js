@@ -7,8 +7,8 @@ import LightTower from "./SpotLight/LightTower.js";
 
 export default class Crane {
     constructor() {
-        const application = new Application()
-        const craneGroup = new THREE.Group()
+        this.application = new Application()
+        this.craneGroup = new THREE.Group()
 
         this.vehicleBody = new VehicleBody();
         this.underbody = new Underbody();
@@ -19,16 +19,17 @@ export default class Crane {
         this.spreadTower.group.position.set(4, 1, 0)
 
 
-        craneGroup.add(
+        this.craneGroup.add(
             this.underbody.group,
             this.vehicleBody.model,
             this.lightTower.group,
             this.spreadTower.group)
-        application.scene.add(craneGroup)
+        application.scene.add(this.craneGroup)
         console.log(application.scene)
     }
 
     update() {
         this.underbody.update();
+        this.craneGroup.position.setX(this.application.animations.cranePosition);
     }
 }
