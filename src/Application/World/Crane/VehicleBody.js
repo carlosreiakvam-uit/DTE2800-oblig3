@@ -39,6 +39,8 @@ export default class VehicleBody {
     }
 
     update() {
+        this.staticBodyParts.update();
+        this.movableTowerParts.update();
         this.group.rotation.set(0, this.application.animations.craneRotation, 0)
     }
 }
