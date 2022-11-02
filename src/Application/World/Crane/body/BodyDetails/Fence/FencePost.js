@@ -1,7 +1,7 @@
-import Application from "../../../Application";
+import Application from "../../../../../Application";
 import * as THREE from "three";
 
-export default class WhiteStuffAroundDrums {
+export default class FencePost {
     constructor() {
         this.application = new Application()
         this.scene = this.application.scene

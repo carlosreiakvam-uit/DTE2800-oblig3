@@ -1,24 +1,20 @@
 import * as THREE from 'three'
 import Application from '../../../Application.js'
-import StaticBodyParts from "./BodyDetails/StaticBodyParts.js";
+import BodyDetails from "./BodyDetails/BodyDetails.js";
 
 
-export default class VehicleBody {
+export default class BlenderBody {
     constructor() {
         this.application = new Application()
         this.resources = this.application.resources
         this.group = new THREE.Group()
 
-        this.staticBodyParts = new StaticBodyParts();
-        this.blender_vehicle = this.setModel()
+        this.blender_vehicle = this.importModel()
+        this.group.add(this.blender_vehicle)
 
-        this.group.add(
-            this.staticBodyParts.group,
-            this.blender_vehicle
-        )
     }
 
-    setModel() {
+    importModel() {
         let blender_vehicle = this.resources.items.vehicle
         this.resources.resolveName('vehicle')
         this.model = blender_vehicle.scene
@@ -34,8 +30,8 @@ export default class VehicleBody {
         return blender_vehicle.scene
     }
 
-    update() {
-        this.staticBodyParts.update();
-        this.group.rotation.set(0, this.application.animations.craneRotation, 0)
-    }
+    // update() {
+    //     this.staticBodyParts.update();
+    //     this.group.rotation.set(0, this.application.animations.craneRotation, 0)
+    // }
 }

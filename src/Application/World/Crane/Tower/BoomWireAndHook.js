@@ -1,8 +1,8 @@
 import Application from "../../../Application";
 import * as THREE from "three";
-import Drum from "../MidBeamsAndDrums/Drum.js";
-import WhiteStuffAroundDrums from "../MidBeamsAndDrums/WhiteStuffAroundDrums";
-import HookCarrige from "../MidBeamsAndDrums/HookCarrige";
+import Drum from "../body/MidBeamsAndDrums/Drum.js";
+import WhiteStuffAroundDrums from "../body/MidBeamsAndDrums/WhiteStuffAroundDrums";
+import HookCarrige from "../body/MidBeamsAndDrums/HookCarrige";
 
 export default class BoomWireAndHook {
     constructor() {

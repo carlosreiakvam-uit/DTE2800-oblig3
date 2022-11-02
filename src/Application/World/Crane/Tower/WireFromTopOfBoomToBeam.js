@@ -1,6 +1,6 @@
 import Application from "../../../Application";
 import * as THREE from "three";
-import Drum from "../MidBeamsAndDrums/Drum.js";
+import Drum from "../body/MidBeamsAndDrums/Drum.js";
 
 export default class WireFromTopOfBoomToBeam {
     constructor() {

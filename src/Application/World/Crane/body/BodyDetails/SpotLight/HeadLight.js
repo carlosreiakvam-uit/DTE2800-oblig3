@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import Application from '../../../Application.js'
+import Application from '../../../../../Application.js'
 import Rod from "./Rod.js";
 import Cone from "./Cone.js";
 import Glass from "./Glass.js";

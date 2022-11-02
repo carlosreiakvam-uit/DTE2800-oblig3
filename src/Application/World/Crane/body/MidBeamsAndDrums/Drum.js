@@ -1,7 +1,7 @@
-import Application from "../../../Application";
+import Application from "../../../../Application";
 import * as THREE from "three";
 
-export default class FencePost {
+export default class Drum {
     constructor() {
         this.application = new Application()
         this.scene = this.application.scene
@@ -11,17 +11,16 @@ export default class FencePost {
         this.setTextures()
         this.setMaterial()
         this.setMesh()
-
     }
 
     setGeometry() {
-        this.geometry = new THREE.CylinderGeometry(1,1,1,30,30)
+        this.geometry = new THREE.CylinderGeometry(1,1,1,10,20)
     }
 
     setTextures() {
         this.textures = {}
 
-        this.textures.color = this.resources.items.blackDirtyDisplacementTexture
+        this.textures.color = this.resources.items.horizontalWireInDrums
         this.textures.color.encoding = THREE.sRGBEncoding;
         this.textures.color.wrapS = THREE.RepeatWrapping;
         this.textures.color.wrapT = THREE.RepeatWrapping;

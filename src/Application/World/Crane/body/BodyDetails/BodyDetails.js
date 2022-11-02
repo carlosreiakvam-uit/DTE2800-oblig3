@@ -1,13 +1,13 @@
 import Application from "../../../../Application";
 import * as THREE from "three";
 import Beam from "../Underbody/Beam";
-import Drum from "../../MidBeamsAndDrums/Drum";
-import WhiteStuffAroundDrums from "../../MidBeamsAndDrums/WhiteStuffAroundDrums";
-import FencePost from "../../Fence/FencePost";
-import HeadLights from "../../SpotLight/HeadLights";
+import Drum from "../MidBeamsAndDrums/Drum";
+import WhiteStuffAroundDrums from "../MidBeamsAndDrums/WhiteStuffAroundDrums";
+import FencePost from "./Fence/FencePost";
+import HeadLights from "./SpotLight/HeadLights";
 import WireFromTopOfBoomToBeam from "../../Tower/WireFromTopOfBoomToBeam";
 
-export default class StaticBodyParts {
+export default class BodyDetails {
     constructor() {
         this.application = new Application()
         this.group = new THREE.Group()

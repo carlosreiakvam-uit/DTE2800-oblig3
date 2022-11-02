@@ -1,8 +1,8 @@
-import Application from "../../../Application";
+import Application from "../../../../Application";
 import * as THREE from "three";
-import Beam from "../body/Underbody/Beam";
-import Circle from "../body/Underbody/Circle";
-import Rod from "../SpotLight/Rod";
+import Beam from "../Underbody/Beam";
+import Circle from "../Underbody/Circle";
+import Rod from "../BodyDetails/SpotLight/Rod";
 import Drum from "./Drum";
 import WhiteStuffAroundDrums from "./WhiteStuffAroundDrums";
 

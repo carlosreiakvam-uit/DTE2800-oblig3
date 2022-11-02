@@ -1,9 +1,9 @@
-import Application from "../../../Application";
+import Application from "../../../../Application";
 import * as THREE from "three";
-import Beam from "../body/Underbody/Beam";
+import Beam from "../Underbody/Beam";
 import Drum from "./Drum";
-import Rod from "../SpotLight/Rod";
-import Animations from "../../../Animations";
+import Rod from "../BodyDetails/SpotLight/Rod";
+import Animations from "../../../../Animations";
 
 export default class BeamAndConnectedWires {
     constructor() {

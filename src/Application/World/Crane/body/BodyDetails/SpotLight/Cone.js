@@ -1,7 +1,7 @@
-import Application from "../../../Application";
+import Application from "../../../../../Application";
 import * as THREE from "three";
 
-export default class Rod {
+export default class Cone {
     constructor() {
         this.application = new Application()
         this.scene = this.application.scene
@@ -15,7 +15,7 @@ export default class Rod {
     }
 
     setGeometry() {
-        this.geometry = new THREE.CylinderGeometry(1,1,1,30,30)
+        this.geometry = new THREE.ConeGeometry(1,1,30,30, true)
     }
 
     setTextures() {
@@ -40,6 +40,6 @@ export default class Rod {
         this.mesh = new THREE.Mesh(this.geometry, this.material)
         this.mesh.receiveShadow = true;
         this.mesh.castShadow = true;
-        this.mesh.name = 'rodMesh'
+        this.mesh.name = 'headlightMesh'
     }
 }

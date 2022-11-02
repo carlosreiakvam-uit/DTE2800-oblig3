@@ -1,7 +1,7 @@
 import Application from "../../../Application";
 import * as THREE from "three";
-import MidBeamAndDrums from "../MidBeamsAndDrums/MidBeamAndDrums";
-import BeamAndConnectedWires from "../MidBeamsAndDrums/BeamAndConnectedWires";
+import MidBeamAndDrums from "../body/MidBeamsAndDrums/MidBeamAndDrums";
+import BeamAndConnectedWires from "../body/MidBeamsAndDrums/BeamAndConnectedWires";
 import BoomWireAndHook from "./BoomWireAndHook";
 import WireFromTopOfBoomToBeam from "./WireFromTopOfBoomToBeam";
 import BoomsAssembled from "./BoomsAssembled.js";

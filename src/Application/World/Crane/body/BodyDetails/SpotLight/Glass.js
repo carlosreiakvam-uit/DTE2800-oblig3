@@ -1,4 +1,4 @@
-import Application from "../../../Application";
+import Application from "../../../../../Application";
 import * as THREE from "three";
 
 export default class Rod {

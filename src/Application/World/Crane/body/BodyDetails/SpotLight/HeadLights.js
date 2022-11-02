@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import Application from '../../../Application.js'
+import Application from '../../../../../Application.js'
 import HeadLight from "./HeadLight.js";
 
 export default class HeadLights {
