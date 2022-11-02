@@ -9,7 +9,7 @@ export default class Animations{
     constructor() {
         this.beltRotation = 0;
         this.cranePosition = 0;
-        this.boomRotation = 0;
+        this.boomRotation = -0.3;
 
         this.beltRotationIncrement = 0.01;
         this.cranePositionIncrement = 0.02;
@@ -39,11 +39,15 @@ export default class Animations{
     }
 
     rotateBoomDown() {
-        this.boomRotation -= this.boomRotationIncrement
+        if (this.boomRotation > -1) {
+            this.boomRotation -= this.boomRotationIncrement
+        }
     }
 
     rotateBoomUp() {
-        this.boomRotation += this.boomRotationIncrement
+        if (this.boomRotation < -0.2){
+            this.boomRotation += this.boomRotationIncrement
+        }
     }
 
     rotateCraneLeft() {

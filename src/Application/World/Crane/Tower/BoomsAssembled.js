@@ -12,6 +12,7 @@ export default class BoomsAssembled {
         this.group.name = 'boomAssembled'
         this.group.position.set(0.3, 2, -0.05) // initial position
         this.totalLength = 2 + 2 + 5
+
         const thetaDeg = 7
 
         this.boomBase = new BoomEnd(2, thetaDeg, thetaDeg).group
@@ -28,18 +29,23 @@ export default class BoomsAssembled {
         this.group.translateZ(-0.02)
         this.group.rotation.set(0, 0, -Math.PI / 6);
         this.group.add(this.boomBase, boomExtender.group, boomTop);
+
+
     }
 
     update() {
-        let platformPos = this.application.scene.children[3].children[1].children[0].getObjectByName('platform').position
-        if (this.group.rotation.z >= -1 && this.group.rotation.z <= 0.2) {
-            this.changeBoomRotation(platformPos, this.application.animations.boomRotation)
+        if (this.platform === undefined) {
+            this.platform = this.application.scene.children[3].children[1].children[0].getObjectByName('platform')
         }
-        if (this.group.rotation.z < -1) {
-            this.changeBoomRotation(platformPos, -1)
-        } else if (this.group.rotation.z > -0.2) {
-            this.changeBoomRotation(platformPos, -0.2)
-        }
+        this.changeBoomRotation(this.platform.position, this.application.animations.boomRotation)
+        // if (this.group.rotation.z >= -1 && this.group.rotation.z <= 0.2) {
+        //     this.changeBoomRotation(this.platform.position, this.application.animations.boomRotation)
+        // }
+        // if (this.group.rotation.z < -1) {
+        //     this.changeBoomRotation(this.platform.position, -1)
+        // } else if (this.group.rotation.z > -0.2) {
+        //     this.changeBoomRotation(this.platform.position, -0.2)
+        // }
     }
 
     changeBoomRotation(platformPos, zRot) {
