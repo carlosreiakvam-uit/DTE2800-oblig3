@@ -1,8 +1,8 @@
-import Application from "../../../Application";
+import Application from "../../../../Application";
 import * as THREE from "three";
 import Beam from "../Underbody/Beam";
 import Circle from "../Underbody/Circle";
-import Rod from "../SpotLight/Rod";
+import Rod from "../BodyDetails/SpotLight/Rod";
 import Drum from "./Drum";
 import WhiteStuffAroundDrums from "./WhiteStuffAroundDrums";
 
@@ -43,10 +43,9 @@ export default class MidBeamAndDrums {
         this.group.add(beam4.mesh);
 
 
-
-        const drum4 = new Rod();
+        const drum4 = new Drum();
         drum4.mesh.position.set(-1.65, 4, -0.07);
-        drum4.mesh.scale.set(0.12, 0.2, 0.12);
+        drum4.mesh.scale.set(0.12, 0.18, 0.12);
         drum4.mesh.rotation.set(-Math.PI / 2, 0, 0);
         this.group.add(drum4.mesh);
 

@@ -1,17 +1,17 @@
-import Application from "../../../Application";
+import Application from "../../../../Application";
 import * as THREE from "three";
 import Beam from "../Underbody/Beam";
-import Circle from "../Underbody/Circle";
 import Drum from "../MidBeamsAndDrums/Drum";
 import WhiteStuffAroundDrums from "../MidBeamsAndDrums/WhiteStuffAroundDrums";
-import Rod from "../SpotLight/Rod";
-import FencePost from "../Fence/FencePost";
-import HeadLights from "../SpotLight/HeadLights";
+import FencePost from "./Fence/FencePost";
+import HeadLights from "./SpotLight/HeadLights";
+import WireFromTopOfBoomToBeam from "../../Tower/WireFromTopOfBoomToBeam";
 
-export default class StaticBodyParts {
+export default class BodyDetails {
     constructor() {
         this.application = new Application()
         this.group = new THREE.Group()
+        this.group.name = 'bodyDetails'
 
         this.AddLightTower();
         this.AddFenceItemsRightSide();
@@ -25,13 +25,14 @@ export default class StaticBodyParts {
         this.group.add(this.lightTower.group);
     }
 
-
     AddMidDrumsAndOtherStaticEffects() {
-        const plattform = new Beam('platform');
-        plattform.mesh.position.set(0.62, 0.94, -0.06);
-        plattform.mesh.scale.set(0.5, 0.1, 0.5);
+        const platform = new Beam('platform');
+        platform.mesh.position.set(0.62, 0.94, -0.06);
+        platform.mesh.scale.set(0.5, 0.1, 0.5);
+        platform.mesh.name = 'platform'
 
-        this.group.add(plattform.mesh);
+        this.group.add(platform.mesh);
+
         const drum1 = new Drum();
         drum1.mesh.position.set(-0.1, 1.21, -0.1);
         drum1.mesh.scale.set(0.25, 0.35, 0.25);
@@ -68,7 +69,7 @@ export default class StaticBodyParts {
         drum2ContainerLeft.mesh.rotation.set(-Math.PI / 2, 0, 0);
         this.group.add(drum2ContainerLeft.mesh);
 
-        const drum3 = new Rod();
+        const drum3 = new Drum();
         drum3.mesh.position.set(-1.65, 2, -0.07);
         drum3.mesh.scale.set(0.12, 0.2, 0.12);
         drum3.mesh.rotation.set(-Math.PI / 2, 0, 0);

@@ -1,27 +1,32 @@
-import VehicleBody from "./VehicleBody";
 import * as THREE from 'three'
 import Application from '../../Application.js'
-import Underbody from "./Underbody/Underbody.js";
+import Underbody from "./body/Underbody/Underbody.js";
+import CompleteBody from "./body/CompleteBody";
+import CompleteTower from "./Tower/CompleteTower";
 
 
 export default class Crane {
     constructor() {
         this.application = new Application()
-        this.craneGroup = new THREE.Group()
+        this.group = new THREE.Group()
 
-        this.vehicleBody = new VehicleBody();
         this.underbody = new Underbody();
+        this.vehicleBody = new CompleteBody();
+        this.tower = new CompleteTower()
 
-        this.craneGroup.add(
+        this.group.add(
             this.underbody.group,
             this.vehicleBody.group,
+            this.tower.group
         )
-        application.scene.add(this.craneGroup)
+
+        application.scene.add(this.group)
     }
 
     update() {
         this.underbody.update();
         this.vehicleBody.update();
-        this.craneGroup.position.setX(this.application.animations.cranePosition);
+        this.tower.update()
+        this.group.position.setX(this.application.animations.cranePosition);
     }
 }

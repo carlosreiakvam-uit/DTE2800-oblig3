@@ -1,6 +1,6 @@
 import Application from "../../../Application";
 import * as THREE from "three";
-import Circle from "../Underbody/Circle";
+import Circle from "../body/Underbody/Circle";
 
 export default class BoomExtension {
     constructor() {

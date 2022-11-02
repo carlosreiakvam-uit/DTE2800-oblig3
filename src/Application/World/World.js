@@ -19,6 +19,7 @@ export default class World {
             this.environment = new Environment()
             this.ready = true;
         })
+        console.log(application)
     }
 
     update() {
