@@ -20,8 +20,8 @@ export default class Animations{
         this.headLightsColor = 0xFFFF00;
 
         this.ambientVisible = true;
-        this.ambientIntensity = 0.6;
-        this.ambientColor = 0xFFFF00;
+        this.ambientIntensity = 0.5;
+        this.ambientColor = 0xffffff;
 
         this.theSunIsShining = true;
 

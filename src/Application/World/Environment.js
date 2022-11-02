@@ -23,8 +23,7 @@ export default class Environment {
     }
 
     setAmbientLight() {
-        this.ambientLight1 = new THREE.AmbientLight(0xffffff, 0.6);
-        this.ambientLight1.intensity = 0.6
+        this.ambientLight1 = new THREE.AmbientLight(0xffffff, 0.1);
         this.ambientLight1.visible = true;
         this.scene.add(this.ambientLight1);
     }
@@ -53,7 +52,7 @@ export default class Environment {
     update() {
         this.ambientLight1.visible = this.application.animations.ambientVisible;
         this.ambientLight1.intensity = this.application.animations.ambientIntensity;
-        this.ambientLight1.color = this.application.animations.ambientColor;
+        this.ambientLight1.color.set(this.application.animations.ambientColor)
         this.sunLight.visible = this.application.animations.theSunIsShining;
     }
 }
