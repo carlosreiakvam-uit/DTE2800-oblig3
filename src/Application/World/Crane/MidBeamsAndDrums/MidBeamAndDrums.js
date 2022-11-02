@@ -16,13 +16,6 @@ export default class MidBeamAndDrums {
 
     AddBeamsDrumsAndWires() {
 
-        const plattform = new Beam('platform');
-        plattform.mesh.position.set(0.62, 0.94, -0.06);
-        plattform.mesh.scale.set(0.5, 0.1, 0.5);
-
-
-        this.group.add(plattform.mesh);
-
         const beam1 = new Beam();
         beam1.mesh.position.set(-.6, 2.55, 0.05);
         beam1.mesh.scale.set(0.15, 4, 0.07);
@@ -49,59 +42,7 @@ export default class MidBeamAndDrums {
         beam4.mesh.name = 'beam4'
         this.group.add(beam4.mesh);
 
-        const drum1 = new Drum();
-        drum1.mesh.position.set(-0.1, 1.21, -0.1);
-        drum1.mesh.scale.set(0.25, 0.35, 0.25);
-        drum1.mesh.rotation.set(-Math.PI / 2, 0, 0);
-        this.group.add(drum1.mesh);
 
-        const drum1ContainerRight = new WhiteStuffAroundDrums();
-        drum1ContainerRight.mesh.position.set(-0.1, 1.21, -0.25);
-        drum1ContainerRight.mesh.scale.set(0.3, 0.05, 0.3);
-        drum1ContainerRight.mesh.rotation.set(-Math.PI / 2, 0, 0);
-        this.group.add(drum1ContainerRight.mesh);
-
-        const drum1ContainerLeft = new WhiteStuffAroundDrums();
-        drum1ContainerLeft.mesh.position.set(-0.1, 1.21, 0.1);
-        drum1ContainerLeft.mesh.scale.set(0.3, 0.05, 0.3);
-        drum1ContainerLeft.mesh.rotation.set(-Math.PI / 2, 0, 0);
-        this.group.add(drum1ContainerLeft.mesh);
-
-        const drum2 = new Drum();
-        drum2.mesh.position.set(-0.75, 1.21, -0.1);
-        drum2.mesh.scale.set(0.25, 0.35, 0.25);
-        drum2.mesh.rotation.set(-Math.PI / 2, 0, 0);
-        this.group.add(drum2.mesh);
-
-        const drum2ContainerRight = new WhiteStuffAroundDrums();
-        drum2ContainerRight.mesh.position.set(-0.75, 1.21, -0.25);
-        drum2ContainerRight.mesh.scale.set(0.3, 0.05, 0.3);
-        drum2ContainerRight.mesh.rotation.set(-Math.PI / 2, 0, 0);
-        this.group.add(drum2ContainerRight.mesh);
-
-        const drum2ContainerLeft = new WhiteStuffAroundDrums();
-        drum2ContainerLeft.mesh.position.set(-0.75, 1.21, 0.1);
-        drum2ContainerLeft.mesh.scale.set(0.3, 0.05, 0.3);
-        drum2ContainerLeft.mesh.rotation.set(-Math.PI / 2, 0, 0);
-        this.group.add(drum2ContainerLeft.mesh);
-
-        const drum3 = new Rod();
-        drum3.mesh.position.set(-1.65, 2, -0.07);
-        drum3.mesh.scale.set(0.12, 0.2, 0.12);
-        drum3.mesh.rotation.set(-Math.PI / 2, 0, 0);
-        this.group.add(drum3.mesh);
-
-        const drum3ContainerRight = new WhiteStuffAroundDrums();
-        drum3ContainerRight.mesh.position.set(-1.65, 1.85, 0.05);
-        drum3ContainerRight.mesh.scale.set(0.05, 0.05, 0.2);
-        drum3ContainerRight.mesh.rotation.set(-Math.PI / 2, 0, 0);
-        this.group.add(drum3ContainerRight.mesh);
-
-        const drum3ContainerLeft = new WhiteStuffAroundDrums();
-        drum3ContainerLeft.mesh.position.set(-1.65, 1.85, -0.19);
-        drum3ContainerLeft.mesh.scale.set(0.05, 0.05, 0.2);
-        drum3ContainerLeft.mesh.rotation.set(-Math.PI / 2, 0, 0);
-        this.group.add(drum3ContainerLeft.mesh);
 
         const drum4 = new Rod();
         drum4.mesh.position.set(-1.65, 4, -0.07);

@@ -2,10 +2,6 @@ import VehicleBody from "./VehicleBody";
 import * as THREE from 'three'
 import Application from '../../Application.js'
 import Underbody from "./Underbody/Underbody.js";
-import HeadLight from "./SpotLight/HeadLight.js";
-import MidBeamAndDrums from "./MidBeamsAndDrums/MidBeamAndDrums.js";
-import Fence from "./BodyDetails/Fence";
-import BoomAssembled from "./Boom/BoomAssembled.js";
 import KeyPress from "../../Utils/KeyPress";
 
 

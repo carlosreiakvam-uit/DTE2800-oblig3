@@ -2,9 +2,10 @@ import * as THREE from 'three'
 import Application from '../../Application.js'
 import HeadLights from "./SpotLight/HeadLights.js";
 import MidBeamAndDrums from "./MidBeamsAndDrums/MidBeamAndDrums.js";
-import Fence from "./BodyDetails/Fence.js";
+import StaticBodyParts from "./BodyDetails/StaticBodyParts.js";
 import BeamAndConnectedWires from "./MidBeamsAndDrums/BeamAndConnectedWires.js";
 import BoomAssembled from "./Boom/BoomAssembled.js";
+import MovableTowerParts from "./BodyDetails/MovableTowerParts";
 
 
 export default class VehicleBody {
@@ -12,21 +13,16 @@ export default class VehicleBody {
         this.application = new Application()
         this.resources = this.application.resources
         this.group = new THREE.Group()
-        this.lightTower = new HeadLights();
-        this.midBeamAndDrums = new MidBeamAndDrums();
-        this.fence = new Fence();
-        this.tower = new BoomAssembled();
-        this.beamAndWires = new BeamAndConnectedWires();
+
+        this.movableTowerParts = new MovableTowerParts();
+        this.staticBodyParts = new StaticBodyParts();
 
         // Resource
         this.setModel()
 
         this.group.add(
-            this.lightTower.group,
-            this.midBeamAndDrums.group,
-            this.fence.group,
-            this.tower.group,
-            this.beamAndWires.group
+            this.staticBodyParts.group,
+            this.movableTowerParts.group,
         )
     }
 
@@ -47,8 +43,6 @@ export default class VehicleBody {
     }
 
     update() {
-        this.lightTower.update();
-        this.beamAndWires.update();
         this.group.rotation.set(0, this.application.animations.craneRotation, 0)
     }
 }

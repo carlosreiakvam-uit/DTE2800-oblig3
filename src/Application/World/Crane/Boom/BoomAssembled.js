@@ -24,7 +24,10 @@ export default class BoomAssembled {
         boomTop.rotateX(deg2rad(180)) // turn top boom upside down
         boomTop.position.set(this.boomBase.position.x, boomExtender.length + 2 - 0.05, 0)
         this.group.animations = {angle: 0}
-
+        this.group.translateX(0.9)
+        this.group.translateY(-0.2)
+        this.group.translateZ(-0.02)
+        this.group.rotation.set(0,0,-Math.PI/6);
         this.group.add(this.boomBase, boomExtender.group, boomTop);
     }
 
