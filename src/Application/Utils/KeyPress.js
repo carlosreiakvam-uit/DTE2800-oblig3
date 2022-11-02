@@ -9,7 +9,7 @@ export default class KeyPress extends EventEmitter
         // Setup
         this.currentlyPressedKeys = [];
 
-        // Key released
+        // Key pressed
         document.addEventListener('keydown', (event) =>
         {
             this.currentlyPressedKeys[event.code] = true;

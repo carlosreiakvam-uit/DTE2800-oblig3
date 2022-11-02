@@ -7,10 +7,12 @@ import MidBeamAndDrums from "./MidBeamsAndDrums/MidBeamAndDrums.js";
 import Fence from "./BodyDetails/Fence";
 import BoomAssembled from "./Boom/BoomAssembled.js";
 import {deg2rad} from "../../Utils/Math";
+import KeyPress from "../../Utils/KeyPress";
 
 
 export default class Crane {
     constructor() {
+        this.keypress = new KeyPress()
         this.application = new Application()
         this.craneGroup = new THREE.Group()
 
@@ -39,4 +41,5 @@ export default class Crane {
         this.craneGroup.position.setX(this.application.animations.cranePosition);
         this.boom.update()
     }
+
 }

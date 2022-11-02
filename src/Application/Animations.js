@@ -4,11 +4,11 @@ export default class Animations{
     constructor() {
         this.beltRotation = 0;
         this.cranePosition = 0;
-        this.craneRotation = 0;
+        this.boomRotation = 0;
 
         this.beltRotationIncrement = 0.01;
         this.cranePositionIncrement = 0.02;
-        this.craneRotationIncrement = 0.01
+        this.boomRotationIncrement = 0.01
 
         this.headLightsOn = true;
     }
@@ -28,11 +28,11 @@ export default class Animations{
     }
 
     rotateBoomDown() {
-        this.craneRotation -= this.craneRotationIncrement
+        this.boomRotation -= this.boomRotationIncrement
     }
 
     rotateBoomUp() {
-        this.craneRotation += this.craneRotationIncrement
+        this.boomRotation += this.boomRotationIncrement
     }
 
     update(currentlyPressedKeys) {

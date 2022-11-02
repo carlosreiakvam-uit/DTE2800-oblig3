@@ -56,6 +56,9 @@ export default class Application
         this.keypress.on("keydown", () => {
             this.animations.update(this.keypress.currentlyPressedKeys);
         })
+        this.keypress.on("keyup", () => {
+            this.animations.update(this.keypress.currentlyPressedKeys);
+        })
     }
 
     resize()
