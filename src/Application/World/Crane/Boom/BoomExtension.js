@@ -9,8 +9,6 @@ export default class BoomExtension {
         this.start = 0
         this.length = 5
 
-        this.spotLightLeft = new THREE.SpotLight(0xFFFF00, 0.5, 50, Math.PI * 0.2, 0, 0);
-        this.spotLightRight = new THREE.SpotLight(0xFFFF00, 0.5, 50, Math.PI * 0.2, 0, 0);
         this.addMainBeams();
     }
 
@@ -141,7 +139,5 @@ export default class BoomExtension {
     }
 
     update() {
-        this.spotLightLeft.isLight = this.application.animations.headLightsOn;
-        this.spotLightRight.isLight = this.application.animations.headLightsOn;
     }
 }

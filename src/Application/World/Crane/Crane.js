@@ -6,7 +6,6 @@ import HeadLight from "./SpotLight/HeadLight.js";
 import MidBeamAndDrums from "./MidBeamsAndDrums/MidBeamAndDrums.js";
 import Fence from "./BodyDetails/Fence";
 import BoomAssembled from "./Boom/BoomAssembled.js";
-import {deg2rad} from "../../Utils/Math";
 import KeyPress from "../../Utils/KeyPress";
 
 
@@ -26,6 +25,7 @@ export default class Crane {
 
         this.craneGroup.add(
             this.underbody.group,
+            this.vehicleBody.group,
             this.vehicleBody.model,
             this.lightTower.group,
             this.midBeamAndDrums.group,
@@ -37,10 +37,10 @@ export default class Crane {
 
     update() {
         this.underbody.update();
+        this.vehicleBody.update();
         this.lightTower.update();
         this.craneGroup.position.setX(this.application.animations.cranePosition);
         this.midBeamAndDrums.update()
         this.boom.update()
     }
-
 }

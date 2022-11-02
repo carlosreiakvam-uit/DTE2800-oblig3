@@ -1,6 +1,11 @@
+import THREE from "three";
+import {Utils} from "three/examples/jsm/libs/flow.module";
+import Application from "./Application";
 
 
 export default class Animations{
+    craneRotation;
+
     constructor() {
         this.beltRotation = 0;
         this.cranePosition = 0;
@@ -11,6 +16,12 @@ export default class Animations{
         this.boomRotationIncrement = 0.01
 
         this.headLightsOn = true;
+        this.headLightsIntensity = 0.5;
+        this.headLightsColor = 0xFFFF00;
+
+        this.theSunIsShining = true;
+
+        this.craneRotation = 0;
     }
 
     toggleHeadlights() {
@@ -35,6 +46,15 @@ export default class Animations{
         this.boomRotation += this.boomRotationIncrement
     }
 
+    rotateCraneLeft() {
+        this.craneRotation += 0.02;
+    }
+
+    rotateCraneRight() {
+        this.craneRotation -= 0.02;
+    }
+
+
     update(currentlyPressedKeys) {
         if(currentlyPressedKeys["KeyW"]) {
             this.moveCraneForwards();
@@ -51,6 +71,14 @@ export default class Animations{
 
         if(currentlyPressedKeys["KeyG"]) {
             this.toggleHeadlights();
+        }
+
+        if(currentlyPressedKeys["KeyQ"]) {
+            this.rotateCraneLeft();
+        }
+
+        if(currentlyPressedKeys["KeyE"]) {
+            this.rotateCraneRight();
         }
     }
 
