@@ -10,7 +10,7 @@ export default class HeadLight {
         this.application = new Application()
         this.group = new THREE.Group()
 
-        this.spotLight = new THREE.SpotLight(0xFFFF00, 0.5, 50, Math.PI * 0.2, 0, 0);
+        this.spotLight = new THREE.SpotLight(0xFFFF00, 30, 50, Math.PI * 0.2, 0.2, 0.5);
         // this.spotLightRight = new THREE.SpotLight(0xFFFF00, 0.5, 50, Math.PI*0.2, 0, 0);
         this.addLightTowers();
     }

@@ -7,6 +7,7 @@ export default class Environment {
         this.scene = this.application.scene
         this.resources = this.application.resources
 
+        this.setAmbientLight();
         this.setSunLight()
         this.setEnvironmentMap()
     }
@@ -19,6 +20,12 @@ export default class Environment {
         this.sunLight.shadow.normalBias = 0.05
         this.sunLight.position.set(3.5, 2, -1.25)
         this.scene.add(this.sunLight);
+    }
+
+    setAmbientLight() {
+        this.ambientLight1 = new THREE.AmbientLight(0xffffff, 0.2);
+        this.ambientLight1.visible = true;
+        this.scene.add(this.ambientLight1);
     }
 
 
@@ -43,6 +50,9 @@ export default class Environment {
     }
 
     update() {
+        this.ambientLight1.visible = this.application.animations.ambientVisible;
+        this.ambientLight1.intensity = this.application.animations.ambientIntensity;
+        this.ambientLight1.color.set(this.application.animations.ambientColor)
         this.sunLight.visible = this.application.animations.theSunIsShining;
     }
 }
