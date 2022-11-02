@@ -6,7 +6,8 @@ import Application from "../../../Application";
 
 export default class BoomAssembled {
     constructor(midBeam) {
-        this.platformPos = midBeam.group.getObjectByName('midBeamAndDrums').getObjectByName('platform').position
+        // this.platformPos = midBeam.group.getObjectByName('midBeamAndDrums').getObjectByName('platform').position
+        this.platformPos = 0 // todo fix
         this.application = new Application()
         this.scene = this.application.scene
         this.group = new THREE.Group()

@@ -1,6 +1,5 @@
 import Application from "../../../Application";
 import * as THREE from "three";
-import {BoxGeometry} from "three";
 import Beam from "../Underbody/Beam";
 import Circle from "../Underbody/Circle";
 import Rod from "../SpotLight/Rod";

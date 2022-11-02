@@ -3,8 +3,8 @@ import Application from '../../Application.js'
 import HeadLights from "./SpotLight/HeadLights.js";
 import MidBeamAndDrums from "./MidBeamsAndDrums/MidBeamAndDrums.js";
 import Fence from "./BodyDetails/Fence.js";
-import Tower from "./patrickTower/tower.js";
 import BeamAndConnectedWires from "./MidBeamsAndDrums/BeamAndConnectedWires.js";
+import BoomAssembled from "./Boom/BoomAssembled.js";
 
 
 export default class VehicleBody {
@@ -15,7 +15,7 @@ export default class VehicleBody {
         this.lightTower = new HeadLights();
         this.midBeamAndDrums = new MidBeamAndDrums();
         this.fence = new Fence();
-        this.tower = new Tower();
+        this.tower = new BoomAssembled();
         this.beamAndWires = new BeamAndConnectedWires();
 
 
