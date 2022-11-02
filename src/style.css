@@ -17,3 +17,17 @@ body
     left: 0;
     outline: none;
 }
+
+#info {
+    position: absolute;
+    padding: 10px;
+    top: 10px;
+    left: 10px;
+    color: white;
+    background: black;
+    width: 25%;
+    text-align: left;
+    z-index: 100;
+    opacity: 0.5;
+    display:block;
+}
