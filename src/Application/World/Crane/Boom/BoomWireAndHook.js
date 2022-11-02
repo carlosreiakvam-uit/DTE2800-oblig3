@@ -50,8 +50,6 @@ export default class BoomWireAndHook {
         innerLine6.mesh.rotation.set(0,0,0)
         this.group.add(innerLine6.mesh);
 
-
-
         const hookCarrige = new HookCarrige()
         hookCarrige.mesh.position.set(0, -2, 0.08);
         hookCarrige.mesh.scale.set(0.1, 0.05, 0.1);

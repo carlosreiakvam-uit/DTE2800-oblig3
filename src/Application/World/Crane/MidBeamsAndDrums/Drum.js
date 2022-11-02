@@ -22,9 +22,9 @@ export default class Drum {
         this.textures = {}
 
         this.textures.color = this.resources.items.horizontalWireInDrums
-        // this.textures.color.encoding = THREE.sRGBEncoding;
-        // this.textures.color.wrapS = THREE.RepeatWrapping;
-        // this.textures.color.wrapT = THREE.RepeatWrapping;
+        this.textures.color.encoding = THREE.sRGBEncoding;
+        this.textures.color.wrapS = THREE.RepeatWrapping;
+        this.textures.color.wrapT = THREE.RepeatWrapping;
     }
 
     setMaterial() {

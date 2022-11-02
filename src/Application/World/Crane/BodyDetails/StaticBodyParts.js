@@ -3,9 +3,9 @@ import * as THREE from "three";
 import Beam from "../Underbody/Beam";
 import Drum from "../MidBeamsAndDrums/Drum";
 import WhiteStuffAroundDrums from "../MidBeamsAndDrums/WhiteStuffAroundDrums";
-import Rod from "../SpotLight/Rod";
 import FencePost from "../Fence/FencePost";
 import HeadLights from "../SpotLight/HeadLights";
+import WireFromTopOfBoomToBeam from "../Boom/WireFromTopOfBoomToBeam";
 
 export default class StaticBodyParts {
     constructor() {
@@ -17,11 +17,17 @@ export default class StaticBodyParts {
         this.AddFenceItemsLeftSide();
         this.AddLadderRightSide();
         this.AddMidDrumsAndOtherStaticEffects();
+        this.AddWireFromTopOfBoomToBeam();
     }
 
     AddLightTower() {
         this.lightTower = new HeadLights();
         this.group.add(this.lightTower.group);
+    }
+
+    AddWireFromTopOfBoomToBeam() {
+        this.wireFromTopOfBoomToBeam = new WireFromTopOfBoomToBeam();
+        this.group.add(this.wireFromTopOfBoomToBeam.group);
     }
 
 
