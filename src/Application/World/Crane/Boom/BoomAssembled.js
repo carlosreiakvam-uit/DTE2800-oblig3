@@ -9,27 +9,25 @@ export default class BoomAssembled {
         this.platformPos = midBeam.group.getObjectByName('midBeamAndDrums').getObjectByName('platform').position
         this.application = new Application()
         this.scene = this.application.scene
-        this.boomRotation = this.application.animations.boomRotation
         this.group = new THREE.Group()
         this.group.name = 'boomAssembled'
         this.group.position.set(0.3, 2, -0.05) // initial position
         const thetaDeg = 7
 
-        let boomBase = new BoomEnd(2, thetaDeg, thetaDeg).group
+        this.boomBase = new BoomEnd(2, thetaDeg, thetaDeg).group
         let boomExtender = new BoomExtension()
         let boomTop = new BoomEnd(2, thetaDeg, thetaDeg).group
 
-        boomExtender.group.position.set(-0.25, 0.99, boomBase.position.x - 0.25)
+        boomExtender.group.position.set(-0.25, 0.99, this.boomBase.position.x - 0.25)
 
         boomTop.rotateX(deg2rad(180)) // turn top boom upside down
-        boomTop.position.set(boomBase.position.x, boomExtender.length + 2 - 0.05, 0)
+        boomTop.position.set(this.boomBase.position.x, boomExtender.length + 2 - 0.05, 0)
         this.group.animations = {angle: 0}
 
-        this.group.add(boomBase, boomExtender.group, boomTop);
+        this.group.add(this.boomBase, boomExtender.group, boomTop);
     }
 
     update() {
-        console.log(this.group.rotation.z)
         if (this.group.rotation.z < -1) {
             this.group.rotation.z = -1
         } else if (this.group.rotation.z > 0) {

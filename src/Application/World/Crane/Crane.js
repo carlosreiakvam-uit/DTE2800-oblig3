@@ -31,7 +31,7 @@ export default class Crane {
             this.midBeamAndDrums.group,
             this.fence.group,
             this.boom.group
-    )
+        )
         application.scene.add(this.craneGroup)
     }
 
@@ -39,6 +39,7 @@ export default class Crane {
         this.underbody.update();
         this.lightTower.update();
         this.craneGroup.position.setX(this.application.animations.cranePosition);
+        this.midBeamAndDrums.update()
         this.boom.update()
     }
 

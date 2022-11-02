@@ -40,12 +40,14 @@ export default class MidBeamAndDrums {
         beam3.mesh.position.set(0.25, 2.7, -0.3);
         beam3.mesh.scale.set(0.05, 4.2, 0.05);
         beam3.mesh.rotation.set(0, 0, -Math.PI / 3);
+        beam3.mesh.name = 'beam3'
         this.group.add(beam3.mesh);
 
         const beam4 = new Circle();
         beam4.mesh.position.set(0.25, 2.7, 0.14);
         beam4.mesh.scale.set(0.05, 4.2, 0.05);
         beam4.mesh.rotation.set(0, 0, -Math.PI / 3);
+        beam4.mesh.name = 'beam4'
         this.group.add(beam4.mesh);
 
         const drum1 = new Drum();
@@ -170,6 +172,14 @@ export default class MidBeamAndDrums {
     }
 
     update() {
+        // let xPos = this.application.world.crane.boom.boomBase.getObjectByName('sqcyl').position.x
+        let xpos = 0
+        // todo: get xpos from crane rotation
+        let y = 3
+        this.group.getObjectByName('beam3').scale.set(0.05, 1.5+xPos, 0.05)
+        this.group.getObjectByName('beam4').scale.set(0.05, 1.5+xPos, 0.05)
+        this.group.getObjectByName('beam3').position.set(-0.2, 2.4, 0.17)
+        this.group.getObjectByName('beam4').position.set(-0.2, 2.4, -0.3)
 
     }
 }

@@ -77,6 +77,7 @@ export default class BoomEnd {
         let squareLength1 = Math.cos(deg2rad(90 - this.zRotAngle)) * height * 2
         let geometry1 = new THREE.CylinderGeometry(0.02, 0.02, squareLength1, 20)
         let squareCyl1 = new THREE.Mesh(geometry1, material)
+        squareCyl1.name = 'sqcyl'
         let squareCyl2 = new THREE.Mesh(geometry1, material)
 
         let squareLength2 = Math.cos(deg2rad(90 - this.zRotAngle)) * height * 2
@@ -97,7 +98,6 @@ export default class BoomEnd {
         squareCyl3.rotation.y = deg2rad(90)
         squareCyl3.position.y = (height / 2) - yOffsetAdjustment
         squareCyl3.position.x = -Math.cos(deg2rad(90 + this.zRotAngle)) * height
-
 
         squareCyl4.rotation.z = deg2rad(90)
         squareCyl4.rotation.y = deg2rad(90)
