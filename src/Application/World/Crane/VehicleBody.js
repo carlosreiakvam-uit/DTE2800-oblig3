@@ -1,10 +1,6 @@
 import * as THREE from 'three'
 import Application from '../../Application.js'
-import HeadLights from "./SpotLight/HeadLights.js";
-import MidBeamAndDrums from "./MidBeamsAndDrums/MidBeamAndDrums.js";
 import StaticBodyParts from "./BodyDetails/StaticBodyParts.js";
-import BeamAndConnectedWires from "./MidBeamsAndDrums/BeamAndConnectedWires.js";
-import BoomAssembled from "./Boom/BoomAssembled.js";
 import MovableTowerParts from "./BodyDetails/MovableTowerParts";
 
 

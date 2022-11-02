@@ -25,6 +25,21 @@ export default [
         path: 'textures/dirt/normal.jpg'
     },
     {
+        name: 'horizontalWireInDrums',
+        type: 'texture',
+        path: 'textures/drums/hor_drums.png'
+    },
+    {
+        name: 'wireInDrums',
+        type: 'texture',
+        path: 'textures/drums/drums.jpg'
+    },
+    {
+        name: 'hook',
+        type: 'gltfModel',
+        path: 'models/hook.glb'
+    },
+    {
         name: 'vehicle',
         type: 'gltfModel',
         path: 'models/vehicle.glb'

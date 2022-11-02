@@ -1,7 +1,7 @@
 import Application from "../../../Application";
 import * as THREE from "three";
 
-export default class Drum {
+export default class HookCarrige {
     constructor() {
         this.application = new Application()
         this.scene = this.application.scene
@@ -11,16 +11,17 @@ export default class Drum {
         this.setTextures()
         this.setMaterial()
         this.setMesh()
+
     }
 
     setGeometry() {
-        this.geometry = new THREE.CylinderGeometry(1,1,1,10,20)
+        this.geometry = new THREE.CylinderGeometry(1,1,1,5,30)
     }
 
     setTextures() {
         this.textures = {}
 
-        this.textures.color = this.resources.items.horizontalWireInDrums
+        this.textures.color = this.resources.items.blackDirtyDisplacementTexture
         this.textures.color.encoding = THREE.sRGBEncoding;
         this.textures.color.wrapS = THREE.RepeatWrapping;
         this.textures.color.wrapT = THREE.RepeatWrapping;
