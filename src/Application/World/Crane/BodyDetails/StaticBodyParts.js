@@ -1,7 +1,6 @@
 import Application from "../../../Application";
 import * as THREE from "three";
 import Beam from "../Underbody/Beam";
-import Circle from "../Underbody/Circle";
 import Drum from "../MidBeamsAndDrums/Drum";
 import WhiteStuffAroundDrums from "../MidBeamsAndDrums/WhiteStuffAroundDrums";
 import Rod from "../SpotLight/Rod";
@@ -32,6 +31,7 @@ export default class StaticBodyParts {
         plattform.mesh.scale.set(0.5, 0.1, 0.5);
 
         this.group.add(plattform.mesh);
+
         const drum1 = new Drum();
         drum1.mesh.position.set(-0.1, 1.21, -0.1);
         drum1.mesh.scale.set(0.25, 0.35, 0.25);
@@ -68,7 +68,7 @@ export default class StaticBodyParts {
         drum2ContainerLeft.mesh.rotation.set(-Math.PI / 2, 0, 0);
         this.group.add(drum2ContainerLeft.mesh);
 
-        const drum3 = new Rod();
+        const drum3 = new Drum();
         drum3.mesh.position.set(-1.65, 2, -0.07);
         drum3.mesh.scale.set(0.12, 0.2, 0.12);
         drum3.mesh.rotation.set(-Math.PI / 2, 0, 0);
