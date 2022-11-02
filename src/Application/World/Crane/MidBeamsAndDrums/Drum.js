@@ -11,7 +11,6 @@ export default class Drum {
         this.setTextures()
         this.setMaterial()
         this.setMesh()
-
     }
 
     setGeometry() {
