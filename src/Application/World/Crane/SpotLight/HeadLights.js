@@ -8,7 +8,6 @@ export default class HeadLights {
         this.group = new THREE.Group()
 
         this.addLights();
-
     }
 
 

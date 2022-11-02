@@ -17,20 +17,12 @@ export default class Crane {
 
         this.vehicleBody = new VehicleBody();
         this.underbody = new Underbody();
-        this.midBeamAndDrums = new MidBeamAndDrums();
-        this.boom = new BoomAssembled(this.midBeamAndDrums)
-        this.lightTower = new HeadLight();
-        this.fence = new Fence();
-
 
         this.craneGroup.add(
             this.underbody.group,
             this.vehicleBody.group,
-            this.vehicleBody.model,
-            this.lightTower.group,
-            this.midBeamAndDrums.group,
-            this.fence.group,
-            this.boom.group
+            //this.vehicleBody.model,
+
         )
         application.scene.add(this.craneGroup)
     }
@@ -38,9 +30,6 @@ export default class Crane {
     update() {
         this.underbody.update();
         this.vehicleBody.update();
-        this.lightTower.update();
         this.craneGroup.position.setX(this.application.animations.cranePosition);
-        this.midBeamAndDrums.update()
-        this.boom.update()
     }
 }

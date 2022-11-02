@@ -18,7 +18,6 @@ export default class VehicleBody {
         this.tower = new BoomAssembled();
         this.beamAndWires = new BeamAndConnectedWires();
 
-
         // Resource
         this.setModel()
 
@@ -52,5 +51,4 @@ export default class VehicleBody {
         this.beamAndWires.update();
         this.group.rotation.set(0, this.application.animations.craneRotation, 0)
     }
-
 }
