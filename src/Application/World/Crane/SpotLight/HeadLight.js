@@ -34,11 +34,11 @@ export default class HeadLight {
         frontSpotLightLeft.mesh.scale.set(0.5, 0.7, 0.5);
         coneWithGlassGroup.add(frontSpotLightLeft.mesh);
 
-        const frontSpotLightLeftGlass = new Glass();
-        frontSpotLightLeftGlass.mesh.position.set(0.5, 0.95, 0);
-        frontSpotLightLeftGlass.mesh.rotation.set(0, 0, Math.PI / 2)
-        frontSpotLightLeftGlass.mesh.scale.set(0.5, 0.005, 0.5);
-        coneWithGlassGroup.add(frontSpotLightLeftGlass.mesh);
+        this.glass = new Glass();
+        this.glass.mesh.position.set(0.5, 0.95, 0);
+        this.glass.mesh.rotation.set(0, 0, Math.PI / 2)
+        this.glass.mesh.scale.set(0.5, 0.005, 0.5);
+        coneWithGlassGroup.add(this.glass.mesh);
 
         this.spotLight.target.position.set(5, 0.95, 0);
         this.spotLight.position.set(0.15, 0.95, 0);
@@ -60,5 +60,6 @@ export default class HeadLight {
         this.spotLight.visible = this.application.animations.headLightsOn;
         this.spotLight.color.set(this.application.animations.headLightsColor);
         this.spotLight.intensity = this.application.animations.headLightsIntensity;
+        this.glass.update();
     }
 }

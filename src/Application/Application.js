@@ -75,7 +75,7 @@ export default class Application
         this.lilGui = new GUI();
         const spotFolder = this.lilGui.addFolder( 'Headlamps' );
         spotFolder.add(this.animations, 'headLightsOn').name("On/Off");
-        spotFolder.add(this.animations, 'headLightsIntensity').min(0).max(11).step(0.01).name("Intensity");
+        spotFolder.add(this.animations, 'headLightsIntensity').min(0).max(6).step(0.01).name("Intensity");
         spotFolder.addColor(this.animations, 'headLightsColor').name("Color");
 
         const sunFolder = this.lilGui.addFolder("Sun light");
