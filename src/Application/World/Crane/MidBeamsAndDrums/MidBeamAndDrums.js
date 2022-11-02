@@ -172,7 +172,7 @@ export default class MidBeamAndDrums {
 
     update() {
         // let xPos = this.application.world.crane.boom.boomBase.getObjectByName('sqcyl').position.x
-        let xpos = 0
+        let xPos = 0
         // todo: get xpos from crane rotation
         let y = 3
         this.group.getObjectByName('beam3').scale.set(0.05, 1.5+xPos, 0.05)

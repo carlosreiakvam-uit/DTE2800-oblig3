@@ -16,7 +16,7 @@ export default class World {
             new Coordinates()
             new Floor()
             this.crane = new Crane()
-            new Environment()
+            this.environment = new Environment()
             this.ready = true;
         })
     }
