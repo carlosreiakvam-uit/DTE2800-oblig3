@@ -4,7 +4,7 @@ import Application from "./Application";
 
 
 export default class Animations{
-    craneRotation;
+
 
     constructor() {
         this.beltRotation = 0;
@@ -22,6 +22,8 @@ export default class Animations{
         this.theSunIsShining = true;
 
         this.craneRotation = 0;
+        this.wireLength = 4;
+        this.wireLengthIncrement = 0.02;
     }
 
     toggleHeadlights() {
@@ -47,6 +49,18 @@ export default class Animations{
     rotateBoomUp() {
         if (this.boomRotation < -0.2){
             this.boomRotation += this.boomRotationIncrement
+        }
+    }
+
+    lowerHook() {
+        if (this.wireLength < 5) {
+            this.wireLength += this.wireLengthIncrement;
+        }
+    }
+
+    liftHook() {
+        if (this.wireLength > 0.5) {
+            this.wireLength -= this.wireLengthIncrement;
         }
     }
 
@@ -83,6 +97,14 @@ export default class Animations{
 
         if(currentlyPressedKeys["KeyE"]) {
             this.rotateCraneRight();
+        }
+
+        if(currentlyPressedKeys["KeyR"]) {
+            this.liftHook();
+        }
+
+        if (currentlyPressedKeys["KeyF"]) {
+            this.lowerHook();
         }
     }
 
