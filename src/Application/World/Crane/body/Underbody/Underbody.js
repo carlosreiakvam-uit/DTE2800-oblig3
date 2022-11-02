@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import Application from '../../../Application.js'
+import Application from '../../../../Application.js'
 import Belt from "./Belt.js";
 import Circle from "./Circle.js";
 import BeltCarriage from "./BeltCarriage.js";

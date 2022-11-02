@@ -1,32 +1,23 @@
 import * as THREE from 'three'
-import Application from "../../../Application.js";
+import Application from '../../../../Application.js'
 
-export default class BeltCarriage {
+export default class Circle {
     constructor() {
         this.application = new Application()
         this.scene = this.application.scene
         this.resources = this.application.resources
 
+
         this.setGeometry()
         this.setTextures()
         this.setMaterial()
         this.setMesh()
+
     }
 
     setGeometry() {
-        let shape = new THREE.Shape();
-        shape.absarc(5, 0, 1, Math.PI * 0.35, Math.PI * 1.5, true);
-        shape.absarc(-5, 0, 1, Math.PI * 1.5, Math.PI * 0.65, true);
-        shape.lineTo(-3, 1.5);
-        shape.lineTo(3, 1.5);
-        shape.closePath();
 
-        const extrudeSettings = {
-            depth: 1,
-            bevelEnabled: false
-        };
-
-        this.geometry = new THREE.ExtrudeGeometry(shape, extrudeSettings);
+        this.geometry = new THREE.CylinderGeometry(1, 1, 1, 50)
     }
 
     setTextures() {
@@ -36,6 +27,7 @@ export default class BeltCarriage {
         this.textures.color.encoding = THREE.sRGBEncoding;
         this.textures.color.wrapS = THREE.RepeatWrapping;
         this.textures.color.wrapT = THREE.RepeatWrapping;
+
     }
 
     setMaterial() {
@@ -49,7 +41,7 @@ export default class BeltCarriage {
 
     setMesh() {
         this.mesh = new THREE.Mesh(this.geometry, this.material)
-        this.mesh.receiveShadow = true
-        this.mesh.castShadow = true
+        this.mesh.receiveShadow = true;
+        this.mesh.castShadow = true;
     }
 }

@@ -1,11 +1,12 @@
 import Application from "../../../Application";
 import * as THREE from "three";
 import MidBeamAndDrums from "../MidBeamsAndDrums/MidBeamAndDrums";
-import BoomAssembled from "../Boom/BoomAssembled";
 import BeamAndConnectedWires from "../MidBeamsAndDrums/BeamAndConnectedWires";
-import BoomWireAndHook from "../Boom/BoomWireAndHook";
+import BoomWireAndHook from "./BoomWireAndHook";
+import WireFromTopOfBoomToBeam from "./WireFromTopOfBoomToBeam";
+import BoomsAssembled from "./BoomsAssembled.js";
 
-export default class MovableTowerParts {
+export default class Tower {
     constructor() {
         this.application = new Application()
         this.resources = this.application.resources
@@ -31,25 +32,27 @@ export default class MovableTowerParts {
     }
 
     AddItems() {
+        this.wireFromTopOfBoomToBeam = new WireFromTopOfBoomToBeam();
         this.midBeamAndDrums = new MidBeamAndDrums();
-        this.group.add(this.midBeamAndDrums.group);
-        this.tower = new BoomAssembled();
-        this.group.add(this.tower.group);
-        this.midBeamAndDrums = new MidBeamAndDrums();
-        this.group.add(this.midBeamAndDrums.group);
-        this.tower = new BoomAssembled();
-        this.group.add(this.tower.group);
+        this.tower = new BoomsAssembled();
         this.beamAndWires = new BeamAndConnectedWires();
-        this.group.add(this.beamAndWires.group)
         this.boomWireAndHook = new BoomWireAndHook();
-        this.group.add(this.boomWireAndHook.group);
+
+        this.group.add(
+            this.wireFromTopOfBoomToBeam.group,
+            this.midBeamAndDrums.group,
+            this.tower.group,
+            this.beamAndWires.group,
+            this.boomWireAndHook.group,
+        )
     }
 
 
     update() {
-        this.beamAndWires.update();
-        this.tower.update();
-        this.midBeamAndDrums.update();
-        this.boomWireAndHook.update();
+        // this.beamAndWires.update();
+        // this.tower.update();
+        // this.midBeamAndDrums.update();
+        // this.boomWireAndHook.update();
+        this.group.rotation.set(0, this.application.animations.craneRotation, 0)
     }
 }

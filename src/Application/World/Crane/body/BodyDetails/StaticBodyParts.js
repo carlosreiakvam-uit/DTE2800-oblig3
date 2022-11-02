@@ -1,11 +1,11 @@
-import Application from "../../../Application";
+import Application from "../../../../Application";
 import * as THREE from "three";
 import Beam from "../Underbody/Beam";
-import Drum from "../MidBeamsAndDrums/Drum";
-import WhiteStuffAroundDrums from "../MidBeamsAndDrums/WhiteStuffAroundDrums";
-import FencePost from "../Fence/FencePost";
-import HeadLights from "../SpotLight/HeadLights";
-import WireFromTopOfBoomToBeam from "../Boom/WireFromTopOfBoomToBeam";
+import Drum from "../../MidBeamsAndDrums/Drum";
+import WhiteStuffAroundDrums from "../../MidBeamsAndDrums/WhiteStuffAroundDrums";
+import FencePost from "../../Fence/FencePost";
+import HeadLights from "../../SpotLight/HeadLights";
+import WireFromTopOfBoomToBeam from "../../Tower/WireFromTopOfBoomToBeam";
 
 export default class StaticBodyParts {
     constructor() {
@@ -17,7 +17,6 @@ export default class StaticBodyParts {
         this.AddFenceItemsLeftSide();
         this.AddLadderRightSide();
         this.AddMidDrumsAndOtherStaticEffects();
-        this.AddWireFromTopOfBoomToBeam();
     }
 
     AddLightTower() {
@@ -25,10 +24,10 @@ export default class StaticBodyParts {
         this.group.add(this.lightTower.group);
     }
 
-    AddWireFromTopOfBoomToBeam() {
-        this.wireFromTopOfBoomToBeam = new WireFromTopOfBoomToBeam();
-        this.group.add(this.wireFromTopOfBoomToBeam.group);
-    }
+    // AddWireFromTopOfBoomToBeam() {
+    // this.wireFromTopOfBoomToBeam = new WireFromTopOfBoomToBeam();
+    //     this.group.add(this.wireFromTopOfBoomToBeam.group);
+    // }
 
 
     AddMidDrumsAndOtherStaticEffects() {

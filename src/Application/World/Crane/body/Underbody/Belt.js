@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import Application from '../../../Application.js'
+import Application from '../../../../Application.js'
 
 export default class Belt {
     constructor() {

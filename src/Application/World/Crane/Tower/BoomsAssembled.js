@@ -4,7 +4,7 @@ import BoomExtension from "./BoomExtension";
 import {deg2rad} from "../../../Utils/Math";
 import Application from "../../../Application";
 
-export default class BoomAssembled {
+export default class BoomsAssembled {
     constructor(midBeam) {
         // this.platformPos = midBeam.group.getObjectByName('midBeamAndDrums').getObjectByName('platform').position
         this.platformPos = 0 // todo fix
