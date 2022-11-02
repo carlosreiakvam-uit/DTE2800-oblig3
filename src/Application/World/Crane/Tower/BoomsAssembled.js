@@ -32,13 +32,13 @@ export default class BoomsAssembled {
 
     update() {
         let platformPos = this.application.scene.children[3].children[1].children[0].getObjectByName('platform').position
-        if (this.group.rotation.z >= -1 && this.group.rotation.z <= 0) {
+        if (this.group.rotation.z >= -1 && this.group.rotation.z <= 0.2) {
             this.changeBoomRotation(platformPos, this.application.animations.boomRotation)
         }
         if (this.group.rotation.z < -1) {
             this.changeBoomRotation(platformPos, -1)
-        } else if (this.group.rotation.z > 0) {
-            this.changeBoomRotation(platformPos, 0)
+        } else if (this.group.rotation.z > -0.2) {
+            this.changeBoomRotation(platformPos, -0.2)
         }
     }
 
