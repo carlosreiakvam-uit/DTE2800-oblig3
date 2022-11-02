@@ -9,10 +9,12 @@ export default class Animations{
     constructor() {
         this.beltRotation = 0;
         this.cranePosition = 0;
-
+        this.boomRotation = 0;
 
         this.beltRotationIncrement = 0.01;
         this.cranePositionIncrement = 0.02;
+        this.boomRotationIncrement = 0.01
+
         this.headLightsOn = true;
         this.headLightsIntensity = 0.5;
         this.headLightsColor = 0xFFFF00;
@@ -36,6 +38,14 @@ export default class Animations{
         this.cranePosition -= this.cranePositionIncrement;
     }
 
+    rotateBoomDown() {
+        this.boomRotation -= this.boomRotationIncrement
+    }
+
+    rotateBoomUp() {
+        this.boomRotation += this.boomRotationIncrement
+    }
+
     rotateCraneLeft() {
         this.craneRotation += 0.02;
     }
@@ -49,9 +59,14 @@ export default class Animations{
         if(currentlyPressedKeys["KeyW"]) {
             this.moveCraneForwards();
         }
-
         if(currentlyPressedKeys["KeyS"]) {
             this.moveCraneBackwards();
+        }
+        if(currentlyPressedKeys["KeyD"]) {
+            this.rotateBoomDown();
+        }
+        if(currentlyPressedKeys["KeyA"]) {
+            this.rotateBoomUp();
         }
 
         if(currentlyPressedKeys["KeyG"]) {
@@ -66,4 +81,5 @@ export default class Animations{
             this.rotateCraneRight();
         }
     }
+
 }

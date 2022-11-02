@@ -9,22 +9,10 @@ export default class BeamAndConnectedWires {
     constructor() {
         this.application = new Application()
         this.group = new THREE.Group()
-        this.beam1 = new Beam();
-        this.beam2 = new Beam();
         this.AddBeamAndWires();
     }
 
     AddBeamAndWires() {
-
-        this.beam1.mesh.position.set(-.6, 2.55, 0.05);
-        this.beam1.mesh.scale.set(0.15, 4, 0.07);
-        this.beam1.mesh.rotation.set(0, 0, Math.PI /5);
-        this.group.add(this.beam1.mesh);
-
-        this.beam2.mesh.position.set(-.6, 2.55, -0.2);
-        this.beam2.mesh.scale.set(0.15, 4, 0.07);
-        this.beam2.mesh.rotation.set(0, 0, Math.PI/5);
-        this.group.add(this.beam2.mesh);
 
         const drum4 = new Rod();
         drum4.mesh.position.set(-1.65, 4, -0.07);

@@ -30,7 +30,7 @@ export default class Underbody {
     }
 
     addBody() {
-        this.mainBeam = new Beam();
+        this.mainBeam = new Beam('underBodyBeam');
         this.mainBeam.mesh.position.set(0, 0.35, 0);
         this.mainBeam.mesh.scale.set(1, 0.4, 2);
 
