@@ -35,6 +35,10 @@ export default class MovableTowerParts {
         this.group.add(this.midBeamAndDrums.group);
         this.tower = new BoomAssembled();
         this.group.add(this.tower.group);
+        this.midBeamAndDrums = new MidBeamAndDrums();
+        this.group.add(this.midBeamAndDrums.group);
+        this.tower = new BoomAssembled();
+        this.group.add(this.tower.group);
         this.beamAndWires = new BeamAndConnectedWires();
         this.group.add(this.beamAndWires.group)
         this.boomWireAndHook = new BoomWireAndHook();
