@@ -9,11 +9,25 @@ export default class BoomWireAndHook {
         this.application = new Application()
         this.group = new THREE.Group()
         this.group.name = 'boomWireAndHook'
-        this.AddWireAndHook();
-        this.group.position.set(5.15, 6.7, -0.09);
+        this.AddWires();
+        this.addHook()
     }
 
-    AddWireAndHook() {
+    addHook() {
+        this.model = this.application.resources.items.hook.scene
+        this.model.scale.set(0.08, 0.08, 0.08)
+        this.model.position.set(0,-2.3,0)
+
+        this.model.traverse((child) => {
+            if (child instanceof THREE.Mesh) {
+                child.castShadow = true
+            }
+        })
+
+        this.group.add(this.model)
+    }
+
+    AddWires() {
         const innerLine1 = new Drum();
         innerLine1.mesh.position.set(-0.06, 0, 0.0);
         innerLine1.mesh.scale.set(0.005, 4, 0.005);
