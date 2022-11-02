@@ -10,7 +10,7 @@ export default class VehicleBody {
 
         // Resource
         this.resource = this.resources.items.vehicle
-        this.resources.resolveName('ape')
+        this.resources.resolveName('vehicle')
         this.setModel()
     }
 
