@@ -105,7 +105,6 @@ export default class BoomWireAndHook {
         if (this.boomAssembled === undefined) {
             this.boomAssembled = this.application.scene.children[3].getObjectByName('completeTower').getObjectByName('boomAssembled')
         }
-        console.log(this.boomAssembled.totalLength)
         let pos = this.boomAssembled.position
         this.group.position.set(pos.x - Math.sin(this.boomAssembled.rotation.z) * 8, Math.cos(this.boomAssembled.rotation.z)*9, pos.z)
         this.group.translateY(-1.1)
