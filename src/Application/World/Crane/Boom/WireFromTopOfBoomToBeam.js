@@ -1,8 +1,6 @@
 import Application from "../../../Application";
 import * as THREE from "three";
 import Drum from "../MidBeamsAndDrums/Drum.js";
-import WhiteStuffAroundDrums from "../MidBeamsAndDrums/WhiteStuffAroundDrums";
-import HookCarrige from "../MidBeamsAndDrums/HookCarrige";
 
 export default class WireFromTopOfBoomToBeam {
     constructor() {
@@ -12,7 +10,6 @@ export default class WireFromTopOfBoomToBeam {
         this.AddWire();
         this.group.position.set(1.15,5.6,0.05);
         this.group.rotateZ(-Math.PI/2.89);
-
     }
 
     AddWire() {

@@ -35,6 +35,11 @@ export default [
         path: 'textures/drums/drums.jpg'
     },
     {
+        name: 'hook',
+        type: 'gltfModel',
+        path: 'models/hook.glb'
+    },
+    {
         name: 'vehicle',
         type: 'gltfModel',
         path: 'models/vehicle.glb'

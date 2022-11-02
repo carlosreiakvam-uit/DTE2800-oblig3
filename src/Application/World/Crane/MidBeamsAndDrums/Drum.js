@@ -15,7 +15,7 @@ export default class Drum {
     }
 
     setGeometry() {
-        this.geometry = new THREE.CylinderGeometry(1,1,1,30,30)
+        this.geometry = new THREE.CylinderGeometry(1,1,1,10,20)
     }
 
     setTextures() {
