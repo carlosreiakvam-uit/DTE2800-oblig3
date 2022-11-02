@@ -48,6 +48,8 @@ export default class VehicleBody {
     }
 
     update() {
+        this.lightTower.update();
+        this.beamAndWires.update();
         this.group.rotation.set(0, this.application.animations.craneRotation, 0)
     }
 
