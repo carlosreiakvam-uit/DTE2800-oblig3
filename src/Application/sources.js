@@ -29,6 +29,7 @@ export default [
         type: 'texture',
         path: 'textures/drums/hor_drums.png'
     },
+
     {
         name: 'wireInDrums',
         type: 'texture',
@@ -44,6 +45,7 @@ export default [
         type: 'gltfModel',
         path: 'models/vehicle.glb'
     },
+
     {
         name: 'rustColorTexture',
         type: 'texture',

@@ -13,13 +13,6 @@ export default class BeamAndConnectedWires {
     }
 
     AddBeamAndWires() {
-
-        // const drum4 = new Drum();
-        // drum4.mesh.position.set(-1.65, 4, -0.07);
-        // drum4.mesh.scale.set(0.1, 0, 0.1);
-        // drum4.mesh.rotation.set(-Math.PI / 2, 0,0);
-        // this.group.add(drum4.mesh);
-
         const outerLine1 = new Drum();
         outerLine1.mesh.position.set(-1.77, 3, 0);
         outerLine1.mesh.scale.set(0.005, 2, 0.005);

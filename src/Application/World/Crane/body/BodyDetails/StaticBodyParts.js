@@ -24,11 +24,6 @@ export default class StaticBodyParts {
         this.group.add(this.lightTower.group);
     }
 
-    // AddWireFromTopOfBoomToBeam() {
-    // this.wireFromTopOfBoomToBeam = new WireFromTopOfBoomToBeam();
-    //     this.group.add(this.wireFromTopOfBoomToBeam.group);
-    // }
-
 
     AddMidDrumsAndOtherStaticEffects() {
         const plattform = new Beam('platform');

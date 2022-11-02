@@ -5,6 +5,7 @@ import BeamAndConnectedWires from "../MidBeamsAndDrums/BeamAndConnectedWires";
 import BoomWireAndHook from "./BoomWireAndHook";
 import WireFromTopOfBoomToBeam from "./WireFromTopOfBoomToBeam";
 import BoomsAssembled from "./BoomsAssembled.js";
+import DynamicBolts from "../MidBeamsAndDrums/DynamicBolts";
 
 export default class Tower {
     constructor() {
@@ -32,6 +33,7 @@ export default class Tower {
     }
 
     AddItems() {
+        this.bolts = new DynamicBolts();
         this.wireFromTopOfBoomToBeam = new WireFromTopOfBoomToBeam();
         this.midBeamAndDrums = new MidBeamAndDrums();
         this.tower = new BoomsAssembled();
@@ -44,6 +46,7 @@ export default class Tower {
             this.tower.group,
             this.beamAndWires.group,
             this.boomWireAndHook.group,
+            this.bolts.group,
         )
     }
 

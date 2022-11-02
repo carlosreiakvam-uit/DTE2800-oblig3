@@ -2,20 +2,19 @@ import Application from "../../../Application";
 import * as THREE from "three";
 import Beam from "../body/Underbody/Beam";
 import Circle from "../body/Underbody/Circle";
-import Rod from "../SpotLight/Rod";
 import Drum from "./Drum";
-import WhiteStuffAroundDrums from "./WhiteStuffAroundDrums";
 
 export default class MidBeamAndDrums {
     constructor() {
         this.application = new Application()
         this.group = new THREE.Group()
         this.group.name = 'midBeamAndDrums'
+        this.resources = this.application.resources
+
         this.AddBeamsDrumsAndWires();
     }
 
     AddBeamsDrumsAndWires() {
-
         const beam1 = new Beam();
         beam1.mesh.position.set(-.6, 2.55, 0.05);
         beam1.mesh.scale.set(0.15, 4, 0.07);
@@ -29,16 +28,16 @@ export default class MidBeamAndDrums {
         this.group.add(beam2.mesh);
 
         const beam3 = new Circle();
-        beam3.mesh.position.set(0.25, 2.7, -0.3);
+        beam3.mesh.position.set(0.2, 2.75, -0.3);
         beam3.mesh.scale.set(0.05, 4.2, 0.05);
-        beam3.mesh.rotation.set(0, 0, -Math.PI / 3);
+        beam3.mesh.rotation.set(0, 0, -Math.PI / 2.95);
         beam3.mesh.name = 'beam3'
         this.group.add(beam3.mesh);
 
         const beam4 = new Circle();
-        beam4.mesh.position.set(0.25, 2.7, 0.14);
+        beam4.mesh.position.set(0.2, 2.75, 0.14);
         beam4.mesh.scale.set(0.05, 4.2, 0.05);
-        beam4.mesh.rotation.set(0, 0, -Math.PI / 3);
+        beam4.mesh.rotation.set(0, 0, -Math.PI / 2.95);
         beam4.mesh.name = 'beam4'
         this.group.add(beam4.mesh);
 
