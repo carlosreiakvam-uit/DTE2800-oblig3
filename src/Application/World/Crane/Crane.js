@@ -1,8 +1,8 @@
 import * as THREE from 'three'
 import Application from '../../Application.js'
 import Underbody from "./body/Underbody/Underbody.js";
-import Tower from "./Tower/Tower.js";
 import CompleteBody from "./body/CompleteBody";
+import CompleteTower from "./Tower/CompleteTower";
 
 
 export default class Crane {
@@ -12,7 +12,7 @@ export default class Crane {
 
         this.underbody = new Underbody();
         this.vehicleBody = new CompleteBody();
-        this.tower = new Tower()
+        this.tower = new CompleteTower()
 
         this.group.add(
             this.underbody.group,

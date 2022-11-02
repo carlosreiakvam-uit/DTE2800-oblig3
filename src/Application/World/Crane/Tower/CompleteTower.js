@@ -6,7 +6,7 @@ import BoomWireAndHook from "./BoomWireAndHook";
 import WireFromTopOfBoomToBeam from "./WireFromTopOfBoomToBeam";
 import BoomsAssembled from "./BoomsAssembled.js";
 
-export default class Tower {
+export default class CompleteTower {
     constructor() {
         this.application = new Application()
         this.resources = this.application.resources
