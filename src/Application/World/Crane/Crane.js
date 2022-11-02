@@ -1,6 +1,6 @@
-import VehicleBody from "./body/VehicleBody";
 import * as THREE from 'three'
 import Application from '../../Application.js'
+import VehicleBody from "./body/VehicleBody.js";
 import Underbody from "./body/Underbody/Underbody.js";
 import Tower from "./Tower/Tower.js";
 
