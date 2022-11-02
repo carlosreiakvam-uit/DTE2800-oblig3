@@ -11,6 +11,7 @@ export default class CompleteTower {
         this.application = new Application()
         this.resources = this.application.resources
         this.group = new THREE.Group()
+        this.group.name = 'completeTower'
         this.setModel();
         this.AddItems();
     }
@@ -34,14 +35,14 @@ export default class CompleteTower {
     AddItems() {
         this.wireFromTopOfBoomToBeam = new WireFromTopOfBoomToBeam();
         this.midBeamAndDrums = new MidBeamAndDrums();
-        this.tower = new BoomsAssembled();
+        this.boomsAssembled = new BoomsAssembled();
         this.beamAndWires = new BeamAndConnectedWires();
         this.boomWireAndHook = new BoomWireAndHook();
 
         this.group.add(
             this.wireFromTopOfBoomToBeam.group,
             this.midBeamAndDrums.group,
-            this.tower.group,
+            this.boomsAssembled.group,
             this.beamAndWires.group,
             this.boomWireAndHook.group,
         )
@@ -50,7 +51,7 @@ export default class CompleteTower {
 
     update() {
         // this.beamAndWires.update();
-        // this.tower.update();
+        this.boomsAssembled.update();
         // this.midBeamAndDrums.update();
         // this.boomWireAndHook.update();
         this.group.rotation.set(0, this.application.animations.craneRotation, 0)

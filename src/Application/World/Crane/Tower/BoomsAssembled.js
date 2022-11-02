@@ -5,9 +5,7 @@ import {deg2rad} from "../../../Utils/Math";
 import Application from "../../../Application";
 
 export default class BoomsAssembled {
-    constructor(midBeam) {
-        // this.platformPos = midBeam.group.getObjectByName('midBeamAndDrums').getObjectByName('platform').position
-        this.platformPos = 0 // todo fix
+    constructor() {
         this.application = new Application()
         this.scene = this.application.scene
         this.group = new THREE.Group()
@@ -27,23 +25,28 @@ export default class BoomsAssembled {
         this.group.translateX(0.9)
         this.group.translateY(-0.2)
         this.group.translateZ(-0.02)
-        this.group.rotation.set(0,0,-Math.PI/6);
+        this.group.rotation.set(0, 0, -Math.PI / 6);
         this.group.add(this.boomBase, boomExtender.group, boomTop);
     }
 
     update() {
+        console.log(this.group.rotation.z)
+        let platformPos = this.application.scene.children[3].children[1].children[0].getObjectByName('platform').position
+        if (this.group.rotation.z >= -1 && this.group.rotation.z <= 0) {
+            this.changeBoomRotation(platformPos, this.application.animations.boomRotation)
+        }
         if (this.group.rotation.z < -1) {
-            this.group.rotation.z = -1
+            this.changeBoomRotation(platformPos, -1)
         } else if (this.group.rotation.z > 0) {
-            this.group.rotation.z = 0
+            this.changeBoomRotation(platformPos, 0)
         }
-        if (this.group.rotation.z >= -1
-            && this.group.rotation.z <= 0) {
-            this.group.rotateZ(this.application.animations.boomRotation)
-            this.group.position.set(this.platformPos.x, this.platformPos.y, this.platformPos.z)
-            this.group.translateY(1)
-            this.application.animations.boomRotation = 0
-        }
+    }
+
+    changeBoomRotation(platformPos, zRot) {
+        this.group.rotation.set(0, 0, zRot)
+        this.group.position.set(platformPos.x, platformPos.y, platformPos.z)
+        this.group.translateY(1)
+
     }
 
 }

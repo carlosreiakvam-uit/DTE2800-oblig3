@@ -9,6 +9,7 @@ export default class CompleteBody {
         this.application = new Application()
         this.resources = this.application.resources
         this.group = new THREE.Group()
+        this.group.name = 'completeBody'
 
         this.bodyDetails = new BodyDetails();
         this.blender_vehicle = new BlenderBody()

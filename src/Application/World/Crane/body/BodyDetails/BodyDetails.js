@@ -11,6 +11,7 @@ export default class BodyDetails {
     constructor() {
         this.application = new Application()
         this.group = new THREE.Group()
+        this.group.name = 'bodyDetails'
 
         this.AddLightTower();
         this.AddFenceItemsRightSide();
@@ -31,11 +32,12 @@ export default class BodyDetails {
 
 
     AddMidDrumsAndOtherStaticEffects() {
-        const plattform = new Beam('platform');
-        plattform.mesh.position.set(0.62, 0.94, -0.06);
-        plattform.mesh.scale.set(0.5, 0.1, 0.5);
+        const platform = new Beam('platform');
+        platform.mesh.position.set(0.62, 0.94, -0.06);
+        platform.mesh.scale.set(0.5, 0.1, 0.5);
+        platform.mesh.name = 'platform'
 
-        this.group.add(plattform.mesh);
+        this.group.add(platform.mesh);
 
         const drum1 = new Drum();
         drum1.mesh.position.set(-0.1, 1.21, -0.1);
