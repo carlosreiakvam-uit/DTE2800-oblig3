@@ -53,7 +53,7 @@ export default class CompleteTower {
         // this.beamAndWires.update();
         this.boomsAssembled.update();
         // this.midBeamAndDrums.update();
-        // this.boomWireAndHook.update();
+        this.boomWireAndHook.update();
         this.group.rotation.set(0, this.application.animations.craneRotation, 0)
     }
 }

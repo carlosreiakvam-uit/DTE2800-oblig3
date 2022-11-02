@@ -11,6 +11,7 @@ export default class BoomsAssembled {
         this.group = new THREE.Group()
         this.group.name = 'boomAssembled'
         this.group.position.set(0.3, 2, -0.05) // initial position
+        this.totalLength = 2 + 2 + 5
         const thetaDeg = 7
 
         this.boomBase = new BoomEnd(2, thetaDeg, thetaDeg).group
@@ -30,7 +31,6 @@ export default class BoomsAssembled {
     }
 
     update() {
-        console.log(this.group.rotation.z)
         let platformPos = this.application.scene.children[3].children[1].children[0].getObjectByName('platform').position
         if (this.group.rotation.z >= -1 && this.group.rotation.z <= 0) {
             this.changeBoomRotation(platformPos, this.application.animations.boomRotation)

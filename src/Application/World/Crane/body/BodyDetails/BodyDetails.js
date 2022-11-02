@@ -25,12 +25,6 @@ export default class BodyDetails {
         this.group.add(this.lightTower.group);
     }
 
-    // AddWireFromTopOfBoomToBeam() {
-    // this.wireFromTopOfBoomToBeam = new WireFromTopOfBoomToBeam();
-    //     this.group.add(this.wireFromTopOfBoomToBeam.group);
-    // }
-
-
     AddMidDrumsAndOtherStaticEffects() {
         const platform = new Beam('platform');
         platform.mesh.position.set(0.62, 0.94, -0.06);
