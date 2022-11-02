@@ -11,11 +11,10 @@ export default class Rod {
         this.setTextures()
         this.setMaterial()
         this.setMesh()
-
     }
 
     setGeometry() {
-        this.geometry = new THREE.CylinderGeometry(1,1,1,30,30)
+        this.geometry = new THREE.CylinderGeometry(1, 1, 1, 30, 30)
     }
 
     setTextures() {
@@ -29,11 +28,18 @@ export default class Rod {
     }
 
     setMaterial() {
-        this.material = new THREE.MeshStandardMaterial({
+        this.material = new THREE.MeshPhysicalMaterial({
+            metalness: .9,
+            roughness: .05,
+            envMapIntensity: 0.9,
+            clearcoat: 1,
+            transparent: true,
+// transmission: .95,
+            opacity: .5,
+            reflectivity: 0.2,
+            refractionRatio: 0.985,
+            ior: 0.9,
             side: THREE.DoubleSide,
-            map: this.textures.color,
-            metalness: 0.01,
-            roughness: 0.5
         })
     }
 
