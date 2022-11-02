@@ -51,9 +51,9 @@ export default class Environment {
     }
 
     update() {
-        this.ambientVisible = this.application.animations.ambientVisible;
-        this.ambientIntensity = this.application.animations.ambientIntensity;
-        this.ambientColor = this.application.animations.ambientColor;
+        this.ambientLight1.visible = this.application.animations.ambientVisible;
+        this.ambientLight1.intensity = this.application.animations.ambientIntensity;
+        this.ambientLight1.color = this.application.animations.ambientColor;
         this.sunLight.visible = this.application.animations.theSunIsShining;
     }
 }
